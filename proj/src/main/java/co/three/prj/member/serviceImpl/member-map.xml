@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.three.prj.member.service.MemberMapper">
+	<select id="selectMember" resultType="co.three.prj.member.service.MemberVO">
+		select * from users where id = #{id}
+		<if test="password != null">
+			and password= #{password}
+		</if>
+	</select>
+	
+	<select id="selectMemberCk" resultType="int">
+	select count(*) from users where id=#{id}
+	</select>
+
+
+	<insert id="insertMember" parameterType="co.three.prj.member.service.MemberVO">
+	insert into users values(#{id},#{password},#{name},#{tel},#{address},#{author})
+	</insert>
+	
+	<update id="ackMember" parameterType="co.three.prj.member.service.MemberVO">
+	update users set author=#{author} where id=#{id}
+	</update>
+
+	<update id="updateMember" parameterType="co.three.prj.member.service.MemberVO">
+
+	</update>
+
+	<delete id="deleteMember" parameterType="co.three.prj.member.service.MemberVO">
+
+	</delete>
+
+
+</mapper>
