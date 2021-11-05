@@ -5,12 +5,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.three.prj.comm.Command;
 
-public class AjaxTest implements Command {
+public class NaverLogin implements Command {
 
 	@Override
 	public String run(HttpServletRequest request, HttpServletResponse response) {
-		
-		return "chart/ajaxTest2"; 
+	
+		return "home/naverLogin.jsp";
 	}
-
+	
 }

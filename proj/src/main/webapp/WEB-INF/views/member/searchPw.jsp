@@ -1,12 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="java.net.URLEncoder"%>
-<%@ page import="java.security.SecureRandom"%>
-<%@ page import="java.math.BigInteger"%>
 <!DOCTYPE html>
 <html>
 <head>
-<title>회원 가입</title>
+<meta charset="UTF-8">
+<title>Insert title here</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
@@ -15,8 +13,7 @@
 <meta name="keywords"
 	content="bootstrap, bootstrap admin template, admin theme, admin dashboard, dashboard template, admin template, responsive" />
 <meta name="author" content="Codedthemes" />
-<meta name="google-signin-client_id"
-	content="311780905451-uuhu5c72f7v821iieastfb1s761bl7vr.apps.googleusercontent.com">
+
 <!-- Favicon icon -->
 
 <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
@@ -46,86 +43,77 @@
 <script type="text/javascript"
 	src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
 <script type="text/javascript">
-	$(document).ready(function() {
+	function Checkitems() {
+		if ($("#terms").is(":checked")) {
+			if (frm.id.value != "") {
+				if(frm.hiddenId.value!="0"){
+					if (frm.password.value != "") {
+						if (frm.password.value == frm.confirmPassword.value) {
+							if (frm.name.value != "") {
+								if ((frm.tel.value != "" && $("#inputch").is(
+									":checked"))
+									|| !($("#inputch").is(":checked"))) {
+									if (frm.address.value != "") {
+										if (frm.detailAddress.value != "") {
+											if(!($("#inputch").is(":checked"))){
+											let c=confirm('알림서비스에 동의하지 않으시면 비밀번호 분실시 찾을 수 없습니다. 계속하시겠습니까?');
+											if(c==true){frm.submit();}
+											else{return null;}
+											}else{frm.submit();}
+													
+										
+									} else {
+										alert("상세주소를 입력하세요");
+										frm.detailAddress.focus();
+										return null;
+									}
+								} else {
+									alert("주소를 입력해주세요");
+									return null;
+								}
 
-		/* 	//네이버 로그인 시작
-		 var naverLogin = new naver.LoginWithNaverId(
-		 {
-		 clientId: "NSjzJlXd5nSfcg0B8RNK", //내 애플리케이션 정보에 cliendId를 입력해줍니다.
-		 callbackUrl: "http://localhost:80/20211101/naverLogin.do", // 내 애플리케이션 API설정의 Callback URL 을 입력해줍니다.
-		 isPopup: false,
-		 callbackHandle: true
-		 }
-		 );	
-
-		 naverLogin.init();
-
-		 window.addEventListener('load', function () {
-		 naverLogin.getLoginStatus(function (status) {
-		 if (status) {
-		 var email = naverLogin.user.getEmail(); // 필수로 설정할것을 받아와 아래처럼 조건문을 줍니다.
-		 var name = naverLogin.user.getName();
-		 var tel = naverLogin.user.getTel();
-		 console.log(naverLogin.user); 
-		
-		 if( email == undefined || email == null) {
-		 alert("이메일은 필수정보입니다. 정보제공을 동의해주세요.");
-		 naverLogin.reprompt();
-		 return;
-		 }
-		 } else {
-		 console.log("callback 처리에 실패하였습니다.");
-		 }
-		 });
-		 });
-
-
-		 var testPopUp;
-		 function openPopUp() {
-		 testPopUp= window.open("https://nid.naver.com/nidlogin.logout", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,width=1,height=1");
-		 }
-		 function closePopUp(){
-		 testPopUp.close();
-		 }
-		 //네이버 로그인 끝 */
-
-	});
-	
-	function ckSpace(){
-		if (frm.id.value != "") {
-			if(frm.password.value !=""){
-				frm.submit();
-			}else{
-				alert("비밀번호를 입력해주세요");
-				frm.password.focus();
+							} else {
+								alert("알림서비스에 동의하셨다면 전화번호를 입력해주세요.");
+								frm.tel.focus();
+								return null;
+							}
+						} else {
+							alert("이름을 입력해주세요.");
+							frm.name.focus();
+							return null;
+						}
+					} else {
+						alert("비밀번호가 다릅니다.")
+						frm.password.value = "";
+						frm.confirmPassword.value = "";
+						frm.password.focus();
+						return null;
+					}
+				} else {
+					alert("비밀번호를 입력해주세요.");
+					frm.password.focus();
+					return null;
+				}
+					}else{
+					alert("아이디 중복체크를 해주세요.");
+					return null;
+					}
+				} else {
+				alert("아이디를 입력해주세요.");
+				frm.id.focus();
 				return null;
 			}
-		}else{
-			alert("아이디를 입력해주세요");
-			frm.id.focus();
+		} else {
+			alert("약관에 동의해주세요.");
 			return null;
 		}
-		
-		
-	}
-	
-	
+	};
+
+
 </script>
 </head>
 
 <body themebg-pattern="theme1">
-	<%
-	String clientId = "NSjzJlXd5nSfcg0B8RNK";//애플리케이션 클라이언트 아이디값";
-	String redirectURI = URLEncoder.encode("http://localhost:80/20211101/naverLogin.do", "UTF-8");
-	SecureRandom random = new SecureRandom();
-	String state = new BigInteger(130, random).toString();
-	String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
-	apiURL += "&client_id=" + clientId;
-	apiURL += "&redirect_uri=" + redirectURI;
-	apiURL += "&state=" + state;
-	session.setAttribute("state", state);
-	%>
-
 	<!-- Pre-loader start -->
 	<div class="theme-loader">
 		<div class="loader-track">
@@ -187,7 +175,7 @@
 				<div class="col-sm-12">
 					<!-- Authentication card start -->
 
-					<form class="md-float-material form-material" id="frm" name="frm" action="memberLogin.do" method="post">
+					<form class="md-float-material form-material">
 						<div class="text-center">
 							<img src="images/logo-2.png" width="162" height="91.8"
 								alt="logo.png">
@@ -196,47 +184,32 @@
 							<div class="card-block">
 								<div class="row m-b-20">
 									<div class="col-md-12">
-										<h3 class="text-center">로그인</h3>
+										<h3 class="text-center">비밀번호 찾기</h3>
 									</div>
 								</div>
 								<div class="form-group form-primary">
-									<input type="text" name="id" class="form-control"> <span
+									<input type="text" name="email" class="form-control"> <span
 										class="form-bar"></span> <label class="float-label">아이디</label>
 								</div>
 								<div class="form-group form-primary">
-									<input type="password" name="password" class="form-control">
-									<span class="form-bar"></span> <label class="float-label">비밀번호</label>
+									<input type="text" name="name" class="form-control">
+									<span class="form-bar"></span> <label class="float-label">이름</label>
 								</div>
-								<div class="row m-t-25 text-left">
-									<div class="col-12">
-										<div class="checkbox-fade fade-in-primary d-">
-
-										<div><a href="<%=apiURL%>"><img height="30" width="30px"
-														src="https://www.naver.com/favicon.ico" /></a>
-											</div>
-
-										</div>
-										<div class="forgot-phone text-right f-right">
-											<a href="searchPw.do" class="text-right f-w-600">
-												비밀번호를 잊으셨나요?</a>
-										</div>
-										<div></div>
-										<div class="forgot-phone text-right f-right">
-											<a href="registerForm.do" class="text-right f-w-600"> 아직
-												회원이 아니신가요?</a>
-										</div>
-									</div>
+								<div class="form-group form-primary">
+									<input type="text" name="tel" class="form-control">
+									<span class="form-bar"></span> <label class="float-label">전화번호</label>
 								</div>
+							
 								<div class="row m-t-30">
 									<div class="col-md-12">
-										<button type="button" onclick="ckSpace()"
-											class="btn btn-primary btn-md btn-block waves-effect waves-light text-center m-b-20">로그인</button>
+										<button type="button"
+											class="btn btn-primary btn-md btn-block waves-effect waves-light text-center m-b-20">비밀번호 찾기</button>
 									</div>
 								</div>
 								<hr />
 								<div class="row">
 									<div class="col-md-9">
-										<p class="text-inverse text-left m-b-0">감사합니다 &#9829;</p>
+										<p class="text-inverse text-left m-b-0">감사합니다.</p>
 										<p class="text-inverse text-left">
 											<a href="home.do"><b>메인페이지로 돌아가기</b></a>
 										</p>
@@ -271,11 +244,9 @@
 	<script type="text/javascript"
 		src="assets/js/jquery-slimscroll/jquery.slimscroll.js"></script>
 	<script type="text/javascript" src="assets/js/common-pages.js"></script>
-	<script
-		src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js"
-		charset="utf-8"></script>
-	<script src="https://apis.google.com/js/platform.js?onload=init" async
-		defer></script>
-
+	<script src="vendor/datatables/jquery.dataTables.min.js"></script>
+	<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+	<!-- Page level custom scripts -->
+	<script src="js/demo/datatables-demo.js"></script>
 </body>
 </html>
