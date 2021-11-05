@@ -52,7 +52,7 @@ public class FrontController extends HttpServlet {
 		//실제 수행할 명령들 넣어두는 곳
 		map.put("/home.do", new HomeCommand()); //첫 페이지 호출
 		map.put("/test.do", new Test()); // .do 호출 테스트
-		map.put("/logout.do", new Logout()); //로그아ㅜㅇㅅ
+		map.put("/logout.do", new Logout()); //로그아웃
 		map.put("/memberLoginForm.do", new MemberLoginForm()); //로그인 폼 호출
 		map.put("/memberLogin.do", new MemberLogin()); //로그인 처리
 		map.put("/memberList.do", new MemberList()); //멤버 목록
@@ -61,9 +61,9 @@ public class FrontController extends HttpServlet {
 		map.put("/charts.do", new Charts()); //차트 보여주기
 		map.put("/ajaxTest.do", new AjaxTest()); //ajax test form
 		map.put("/ajaxMemberList.do", new AjaxMemberList()); // 실제 처리
-    map.put("/lostNotice.do", new LostNotice());	//분실물 페이지
+		map.put("/lostNotice.do", new LostNotice());	//분실물 페이지
     
-    map.put("/foundNotice.do", new FoundNotice()); // 습득물 페이지
+		map.put("/foundNotice.do", new FoundNotice()); // 습득물 페이지
 		map.put("/lNDetail.do", new LNDetail()); // 습득물 상세페이지.
 		map.put("/noticeForm.do", new noticeForm()); // 글쓰기 입력폼.
 	}

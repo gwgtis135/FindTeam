@@ -80,7 +80,7 @@
           <a class="nav-link" href="home.do">Home</a>
         </li>
         <li class="nav-item @@about">
-          <a class="nav-link" href="about.html">분실물 게시판</a>
+          <a class="nav-link" href="lostNotice.do	">분실물 게시판</a>
         </li>
         <li class="nav-item @@service">
           <a class="nav-link" href="lNDetail.do">습득물 게시판</a>
