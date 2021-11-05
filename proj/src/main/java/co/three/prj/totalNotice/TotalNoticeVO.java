@@ -7,7 +7,7 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class TotalNotice {
+public class TotalNoticeVO {
 
 	private String tnId;
 	private String tnName;				//물건이름

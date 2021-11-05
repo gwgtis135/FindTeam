@@ -27,6 +27,7 @@ import co.three.prj.command.MemberLoginForm;
 import co.three.prj.command.RegisterForm;
 import co.three.prj.command.RegisterMember;
 import co.three.prj.command.Test;
+import co.three.prj.command.TotalNotice;
 import co.three.prj.command.noticeForm;
 
 
@@ -66,6 +67,7 @@ public class FrontController extends HttpServlet {
     map.put("/foundNotice.do", new FoundNotice()); // 습득물 페이지
 		map.put("/lNDetail.do", new LNDetail()); // 습득물 상세페이지.
 		map.put("/noticeForm.do", new noticeForm()); // 글쓰기 입력폼.
+		map.put("/totalNotice.do", new TotalNotice()); //유실물 통합 페이지.
 	}
 
 

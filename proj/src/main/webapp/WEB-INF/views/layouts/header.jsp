@@ -86,7 +86,7 @@
           <a class="nav-link" href="lNDetail.do">습득물 게시판</a>
         </li>
         <li class="nav-item @@gallery">
-          <a class="nav-link" href="gallery.html">공공기관 유실물 조회</a>
+          <a class="nav-link" href="totalNotice.do">공공기관 유실물 조회</a>
         </li>
            <li class="nav-item @@contact">
           <a class="nav-link" href="contact.html">사이트 소개</a>
