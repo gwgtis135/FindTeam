@@ -49,7 +49,7 @@
     <div class="row align-items-center">
       <div class="col-xl-4 col-lg-3">
         <div class="logo">
-          <a href="home.do">
+          <a href="index.html">
             <img loading="lazy" class="img-fluid" src="images/logo.jpg" alt="logo">
           </a>
         </div>
@@ -58,7 +58,7 @@
       <div class="right-side">
       <ul class="contact-info pl-0 mb-4 mb-md-0" style="float:right">
           <div class="link-btn text-center text-lg-right">
-              <c:if test="${empty id }">        
+               <c:if test="${empty id }">        
             <a href="memberLoginForm.do" class="btn-style-one" style="border-radius:150px">로그인</a>
             <a href="registerForm.do" class="btn-style-one" style="border-radius:200px">회원가입</a>
             </c:if>
@@ -91,14 +91,14 @@
           <a class="nav-link" href="lNDetail.do">습득물 게시판</a>
         </li>
         <li class="nav-item @@gallery">
-          <a class="nav-link" href="gallery.html">공공기관 유실물 조회</a>
+          <a class="nav-link" href="totalNotice.do">공공기관 유실물 조회</a>
         </li>
            <li class="nav-item @@contact">
           <a class="nav-link" href="contact.html">사이트 소개</a>
         </li>
         <c:if test="${not empty id }"><!-- 로그인 후 보이는 메뉴 -->
         <li class="nav-item @@appointment">
-          <a class="nav-link" href="myManage.do">나의 정보</a>
+          <a class="nav-link" href="memberSelect.do">나의 정보</a>
         </li>
         </c:if>
         
@@ -142,4 +142,5 @@
 <!-- script js -->
 <script src="js/script.js"></script>
 </body>
+
 </html>
