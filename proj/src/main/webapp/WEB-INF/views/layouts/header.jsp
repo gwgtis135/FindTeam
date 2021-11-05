@@ -49,7 +49,7 @@
     <div class="row align-items-center">
       <div class="col-xl-4 col-lg-3">
         <div class="logo">
-          <a href="index.html">
+          <a href="home.do">
             <img loading="lazy" class="img-fluid" src="images/logo.jpg" alt="logo">
           </a>
         </div>
@@ -58,8 +58,13 @@
       <div class="right-side">
       <ul class="contact-info pl-0 mb-4 mb-md-0" style="float:right">
           <div class="link-btn text-center text-lg-right">
+              <c:if test="${empty id }">        
             <a href="memberLoginForm.do" class="btn-style-one" style="border-radius:150px">로그인</a>
             <a href="registerForm.do" class="btn-style-one" style="border-radius:200px">회원가입</a>
+            </c:if>
+            <c:if test="${not empty id }">
+            <a href="logout.do" class="btn-style-one" style="border-radius:200px">로그아웃</a>
+            </c:if>
           </div>
           </ul>
       </div>
@@ -93,7 +98,7 @@
         </li>
         <c:if test="${not empty id }"><!-- 로그인 후 보이는 메뉴 -->
         <li class="nav-item @@appointment">
-          <a class="nav-link" href="memberSelect.do">나의 정보</a>
+          <a class="nav-link" href="myManage.do">나의 정보</a>
         </li>
         </c:if>
         

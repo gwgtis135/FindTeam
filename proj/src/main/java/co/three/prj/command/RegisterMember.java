@@ -23,10 +23,10 @@ public class RegisterMember implements Command {
 		vo.setAuthor(request.getParameter("author"));		
 		vo.setTel(request.getParameter("tel"));
 		n=memberDao.insertMember(vo);
-		request.setAttribute("member", vo);
+
 		String viewPage = null;
 		if(n!=0) {
-			viewPage="member/memberAccept"; 
+			viewPage="member/memberAccept.jsp"; 
 		}else {
 			request.setAttribute("message", "회원가입이 정상적으로 처리되지 못했습니다.");
 			viewPage="member/memberError";

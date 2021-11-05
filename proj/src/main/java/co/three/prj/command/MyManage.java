@@ -9,30 +9,17 @@ import co.three.prj.member.service.MemberService;
 import co.three.prj.member.service.MemberVO;
 import co.three.prj.member.serviceImpl.MemberServiceImpl;
 
-public class MemberLogin implements Command {
+public class MyManage implements Command {
 
 	@Override
 	public String run(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
-		String page=null;
-
-		MemberService memberDao = new MemberServiceImpl();
-
 		MemberVO vo = new MemberVO();
-		vo.setId(request.getParameter("id"));
-		vo.setPassword(request.getParameter("password"));
-		
+		MemberService memberDao = new MemberServiceImpl();
+		vo.setId((String) session.getAttribute("id"));
 		vo=memberDao.selectMember(vo);
-		if(vo!= null) {
-			session.setAttribute("id", vo.getId());
-			session.setAttribute("name", vo.getName());
-			session.setAttribute("author", vo.getAuthor());
-		page= "home.do"	;
-		}else {
-			page="memberLoginForm.do";
-		}
-		
-		return page;
+		request.setAttribute("member", vo);
+		return "member/myManage";
 	}
 
 }
