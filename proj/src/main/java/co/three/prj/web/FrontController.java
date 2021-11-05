@@ -24,8 +24,12 @@ import co.three.prj.command.LostNotice;
 import co.three.prj.command.MemberList;
 import co.three.prj.command.MemberLogin;
 import co.three.prj.command.MemberLoginForm;
+import co.three.prj.command.MyManage;
+import co.three.prj.command.NaverLogin;
+import co.three.prj.command.NaverSave;
 import co.three.prj.command.RegisterForm;
 import co.three.prj.command.RegisterMember;
+import co.three.prj.command.SearchPw;
 import co.three.prj.command.Test;
 import co.three.prj.command.TotalNotice;
 import co.three.prj.command.noticeForm;
@@ -57,17 +61,24 @@ public class FrontController extends HttpServlet {
 		map.put("/memberLoginForm.do", new MemberLoginForm()); //로그인 폼 호출
 		map.put("/memberLogin.do", new MemberLogin()); //로그인 처리
 		map.put("/memberList.do", new MemberList()); //멤버 목록
-		map.put("/registerForm.do", new RegisterForm()); //회원 가입 폼 호출
-		map.put("/registerMember.do", new RegisterMember()); // 회원 가입
+
 		map.put("/charts.do", new Charts()); //차트 보여주기
 		map.put("/ajaxTest.do", new AjaxTest()); //ajax test form
 		map.put("/ajaxMemberList.do", new AjaxMemberList()); // 실제 처리
-    map.put("/lostNotice.do", new LostNotice());	//분실물 페이지
-    
+    map.put("/lostNotice.do", new LostNotice());	//분실물 페이지   
     map.put("/foundNotice.do", new FoundNotice()); // 습득물 페이지
 		map.put("/lNDetail.do", new LNDetail()); // 습득물 상세페이지.
 		map.put("/noticeForm.do", new noticeForm()); // 글쓰기 입력폼.
+
 		map.put("/totalNotice.do", new TotalNotice()); //유실물 통합 페이지.
+
+		
+		map.put("/registerForm.do", new RegisterForm()); //회원 가입 폼 호출
+		map.put("/registerMember.do", new RegisterMember()); // 회원 가입
+		map.put("/naverLogin.do", new NaverLogin()); //네이버 콜백용 //안됨
+		map.put("/searchPw.do", new SearchPw()); //비밀번호 찾기
+		map.put("/myManage.do", new MyManage()); // 내정보 관리
+	
 	}
 
 

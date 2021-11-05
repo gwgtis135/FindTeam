@@ -58,8 +58,13 @@
       <div class="right-side">
       <ul class="contact-info pl-0 mb-4 mb-md-0" style="float:right">
           <div class="link-btn text-center text-lg-right">
+               <c:if test="${empty id }">        
             <a href="memberLoginForm.do" class="btn-style-one" style="border-radius:150px">로그인</a>
             <a href="registerForm.do" class="btn-style-one" style="border-radius:200px">회원가입</a>
+            </c:if>
+            <c:if test="${not empty id }">
+            <a href="logout.do" class="btn-style-one" style="border-radius:200px">로그아웃</a>
+            </c:if>
           </div>
           </ul>
       </div>
@@ -137,4 +142,5 @@
 <!-- script js -->
 <script src="js/script.js"></script>
 </body>
+
 </html>

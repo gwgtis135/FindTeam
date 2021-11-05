@@ -12,6 +12,7 @@
 <meta name="keywords"
 	content="bootstrap, bootstrap admin template, admin theme, admin dashboard, dashboard template, admin template, responsive" />
 <meta name="author" content="Codedthemes" />
+
 <!-- Favicon icon -->
 
 <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
@@ -63,7 +64,7 @@
 		$('#idList_wrapper').hide();  
 		$("#id").on("keyup",function() {
 		    frm.hiddenId.value="0";
-		    console.log(frm.hiddenId.value);
+	
 		});
 	});
 
@@ -73,7 +74,7 @@
 	function idCk() {
 		let cnt=0;
 		let id =  document.getElementById("id").value;
-		console.log(document.getElementById("id").value);
+
 		if (id == "") {
 			$('#idCheck').text("아이디를 입력해주세요.");
 			$('#idCheck').css('color', 'red');
@@ -93,7 +94,7 @@
 				$('#idCheck').text("사용가능한 아이디입니다.");
 				$('#idCheck').css('color', 'blue');
 				frm.hiddenId.value="1";
-				   console.log(frm.hiddenId.value);
+		
 			} 
 			
 		}
@@ -112,15 +113,13 @@
 									|| !($("#inputch").is(":checked"))) {
 									if (frm.address.value != "") {
 										if (frm.detailAddress.value != "") {
-											if (frm.email.value != "") {
-													frm.submit();
-												}
-
-											else {
-												alert("이메일을 입력해주세요.");
-												frm.tel.focus();
-												return null;
-										}
+											if(!($("#inputch").is(":checked"))){
+											let c=confirm('알림서비스에 동의하지 않으시면 비밀번호 분실시 찾을 수 없습니다. 계속하시겠습니까?');
+											if(c==true){frm.submit();}
+											else{return null;}
+											}else{frm.submit();}
+													
+										
 									} else {
 										alert("상세주소를 입력하세요");
 										frm.detailAddress.focus();
@@ -252,10 +251,10 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-sm-12">
-					<form class="md-float-material form-material" id="frm" name="frm"
+					<form class="md-float-material form-material" id="frm" name="frm" method="post"
 						action="registerMember.do">
 						<div class="text-center">
-							<img src="assets/images/logo.png" alt="logo.png">
+							<img src="images/logo-2.png" width="162" height="91.8"  alt="logo.png">
 						</div>
 						<div class="auth-box card">
 							<div class="card-block">
@@ -325,42 +324,7 @@
 									<span class="form-bar"></span> <label class="float-label">&#11088
 										상세 주소를 입력해주세요!</label>
 								</div>
-								<div class="row">
-									<div class="col-sm-8">
-										<div class="form-group form-primary">
-											<input type="email" id = "email" name="email" class="form-control">
-											<span class="form-bar"></span> <label class="float-label">&#11088
-												이메일을 입력해주세요</label>
-										</div>
-									</div>
-									<div class="col-sm-4">
-										<div class="form-group form-primary">
-											<button type="button" id="eamilAuthBtn" onclick="emailAuthentication()"
-												class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">
-											<span class="form-bar"></span> 인증번호 받기</button>
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-sm-8">
-										<div class="form-group form-primary">
-											<input type="text" id="emailConfirm" class="form-control">
-											<span class="form-bar"></span> <label class="float-label">&#11088
-												이메일 인증번호 입력</label>
-										</div>
-										<div class="form-group form-primary">
-											<div class="check_font" id="emCheck"></div>
-										</div>
-									</div>
-									<div class="col-sm-4">
-										<div class="form-group form-primary">
-											<button type="button" id="authCodeCheckBtn" onclick="authCodeCheck()"
-												class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">
-											<span class="form-bar"></span> 인증번호 확인</button>
-										</div>
-									</div>
-									
-								</div>
+							
 
 								<br> <br>
 								<div class="row m-t-25 text-left">
@@ -395,24 +359,24 @@
 								</div>
 								<hr />
 								<div class="row">
-									<div class="col-md-10">
-										<p class="text-inverse text-left m-b-0">감사합니다.</p>
+									<div class="col-md-9">
+										<p class="text-inverse text-left m-b-0" id="mop">감사합니다 &#9829; </p>
 										<br>
 										<p class="text-inverse text-left">
 											<a href="home.do"><b>메인페이지로 돌아가기</b></a>
 										</p>
 									</div>
-									<div class="col-md-2">
-										<img src="assets/images/auth/Logo-small-bottom.png"
+									<div class="col-md-3">
+										<img src="images/logo.jpg" width="85%" height="85%"
 											alt="small-logo.png">
 									</div>
 								</div>
 							</div>
 						</div>
 						<input type="hidden" name="hiddenId" value="0"> <input
-							type="hidden" name="author" value="0">
+							type="hidden" name="author" value="USER">
 					</form>
-					<table id="idList">
+					<table id="idList" style="display:none">
 						<thead>
 							<tr>
 								<th>id</th>
@@ -429,21 +393,17 @@
 	</section>
 
 	<!-- Required Jquery -->
-	<script type="text/javascript" src="assets/js/jquery/jquery.min.js "></script>
-	<script type="text/javascript"
-		src="assets/js/jquery-ui/jquery-ui.min.js "></script>
-	<script type="text/javascript" src="assets/js/popper.js/popper.min.js"></script>
-	<script type="text/javascript"
-		src="assets/js/bootstrap/js/bootstrap.min.js "></script>
-	<!-- waves js -->
-	<script src="assets/pages/waves/js/waves.min.js"></script>
-	<!-- jquery slimscroll js -->
-	<script type="text/javascript"
-		src="assets/js/jquery-slimscroll/jquery.slimscroll.js"></script>
-	<script type="text/javascript" src="assets/js/common-pages.js"></script>
+<script type="text/javascript" src="assets/js/jquery/jquery.min.js "></script>
+<script type="text/javascript" src="assets/js/jquery-ui/jquery-ui.min.js "></script>
+<script type="text/javascript" src="assets/js/popper.js/popper.min.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap/js/bootstrap.min.js "></script>
+<!-- waves js -->
+<script src="assets/pages/waves/js/waves.min.js"></script>
+<!-- jquery slimscroll js -->
+<script type="text/javascript" src="assets/js/jquery-slimscroll/jquery.slimscroll.js"></script>
+<script type="text/javascript" src="assets/js/common-pages.js"></script>
 	<script src="vendor/datatables/jquery.dataTables.min.js"></script>
-	<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
-	<!-- Page level custom scripts -->
-	<script src="js/demo/datatables-demo.js"></script>
+	<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script><!-- Page level custom scripts -->
+    <script src="js/demo/datatables-demo.js"></script>
 </body>
 </html>
