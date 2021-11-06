@@ -150,23 +150,7 @@ body {
            <li class="nav-item @@contact">
           <a class="nav-link" href="contact.html">사이트 소개</a>
         </li>
-        <c:if test="${not empty id }"><!-- 로그인 후 보이는 메뉴 -->
-        <li class="nav-item @@appointment">
-          <a class="nav-link" href="memberSelect.do">나의 정보</a>
-        </li>
-        </c:if>
-        
-        <c:if test="${author == 'ADMIN' }"> <!-- 관리자만 보이는 드롭다운 -->
-        <li class="nav-item dropdown @@blogs">
-          <a class="nav-link dropdown-toggle" href="#!" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">관리자 페이지</a>
-
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item @@blog" href="memberSelectList.do">회원 관리</a></li>
-            <li><a class="dropdown-item @@blogDetails" href="blog-details.html">게시글 관리</a></li>
-            </li>
-            </c:if>
-          </ul>
-        </li>
+    
     
       </ul>
     </div>

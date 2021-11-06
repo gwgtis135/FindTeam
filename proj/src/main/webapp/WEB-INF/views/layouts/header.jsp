@@ -39,7 +39,12 @@
   
   <!--Favicon-->
   <link rel="icon" href="images/favicon.png" type="image/x-icon">
+<style>
+div.fixed-button{
+display:none;
+}
 
+</style>
 </head>
 <body>
 
@@ -49,7 +54,7 @@
     <div class="row align-items-center">
       <div class="col-xl-4 col-lg-3">
         <div class="logo">
-          <a href="index.html">
+          <a href="home.do">
             <img loading="lazy" class="img-fluid" src="images/logo.jpg" alt="logo">
           </a>
         </div>
@@ -63,6 +68,7 @@
             <a href="registerForm.do" class="btn-style-one" style="border-radius:200px">회원가입</a>
             </c:if>
             <c:if test="${not empty id }">
+            <div>${name }님 환영합니다!</div>
             <a href="logout.do" class="btn-style-one" style="border-radius:200px">로그아웃</a>
             </c:if>
           </div>
@@ -84,6 +90,14 @@
         <li class="nav-item active">
           <a class="nav-link" href="home.do">Home</a>
         </li>
+         <li class="nav-item dropdown @@contacts">
+         <a class="nav-link dropdown-toggle" href="#!" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">사이트 소개</a>
+ 			<ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+            <li><a class="dropdown-item @@contact" href="introSelf.do">인사말</a></li>      
+            <li><a class="dropdown-item @@contactDetails" href="introSite.do">오시는 길</a></li>
+          </ul>
+         </li>
+        
         <li class="nav-item @@about">
           <a class="nav-link" href="about.html">분실물 게시판</a>
         </li>
@@ -93,27 +107,24 @@
         <li class="nav-item @@gallery">
           <a class="nav-link" href="totalNotice.do">공공기관 유실물 조회</a>
         </li>
-           <li class="nav-item @@contact">
-          <a class="nav-link" href="contact.html">사이트 소개</a>
-        </li>
+          
         <c:if test="${not empty id }"><!-- 로그인 후 보이는 메뉴 -->
         <li class="nav-item @@appointment">
-          <a class="nav-link" href="memberSelect.do">나의 정보</a>
+          <a class="nav-link" href="myManage.do">나의 정보</a>
         </li>
         </c:if>
         
         <c:if test="${author == 'ADMIN' }"> <!-- 관리자만 보이는 드롭다운 -->
         <li class="nav-item dropdown @@blogs">
           <a class="nav-link dropdown-toggle" href="#!" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">관리자 페이지</a>
-
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item @@blog" href="memberSelectList.do">회원 관리</a></li>
+            <li><a class="dropdown-item @@blog" href="adminMember.do">회원 관리</a></li>
             <li><a class="dropdown-item @@blogDetails" href="blog-details.html">게시글 관리</a></li>
+                      </ul>    
             </li>
             </c:if>
-          </ul>
-        </li>
-    
+
+
       </ul>
     </div>
   </div>
