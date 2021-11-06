@@ -13,17 +13,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.three.prj.comm.Command;
+import co.three.prj.command.AdminMember;
 import co.three.prj.command.AjaxMemberList;
 import co.three.prj.command.AjaxTest;
 import co.three.prj.command.Charts;
 import co.three.prj.command.FoundNotice;
 import co.three.prj.command.HomeCommand;
+import co.three.prj.command.ImfoAmend;
+import co.three.prj.command.IntroSelf;
+import co.three.prj.command.IntroSite;
 import co.three.prj.command.LNDetail;
 import co.three.prj.command.Logout;
 import co.three.prj.command.LostNotice;
 import co.three.prj.command.MemberList;
 import co.three.prj.command.MemberLogin;
 import co.three.prj.command.MemberLoginForm;
+import co.three.prj.command.MyImfoAmend;
 import co.three.prj.command.MyManage;
 import co.three.prj.command.NaverLogin;
 import co.three.prj.command.NaverSave;
@@ -78,6 +83,13 @@ public class FrontController extends HttpServlet {
 		map.put("/naverLogin.do", new NaverLogin()); //네이버 콜백용 //안됨
 		map.put("/searchPw.do", new SearchPw()); //비밀번호 찾기
 		map.put("/myManage.do", new MyManage()); // 내정보 관리
+		map.put("/myImfoAmend.do", new MyImfoAmend()); //내정보 수정
+		map.put("/imfoAmend.do", new ImfoAmend()); //수정완료시
+		
+		map.put("/introSite.do", new IntroSite()); //오시는길
+		map.put("/introSelf.do", new IntroSelf());//인사말
+		map.put("/adminMember.do", new AdminMember());
+		
 	
 	}
 
