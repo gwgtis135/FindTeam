@@ -102,7 +102,7 @@ display:none;
           <a class="nav-link" href="lostNotice.do	">분실물 게시판</a>
         </li>
         <li class="nav-item @@service">
-          <a class="nav-link" href="lNDetail.do">습득물 게시판</a>
+          <a class="nav-link" href="lNForm.do">습득물 게시판</a>
         </li>
         <li class="nav-item @@gallery">
           <a class="nav-link" href="totalNotice.do">공공기관 유실물 조회</a>
