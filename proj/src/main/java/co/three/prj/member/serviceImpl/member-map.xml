@@ -22,7 +22,7 @@
 	</update>
 
 	<update id="updateMember" parameterType="co.three.prj.member.service.MemberVO">
-
+	update users set password=#{password},name=#{name},tel=#{tel},address=#{address}, author=#{author} where id=#{id}
 	</update>
 
 	<delete id="deleteMember" parameterType="co.three.prj.member.service.MemberVO">

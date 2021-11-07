@@ -12,7 +12,7 @@ public class Logout implements Command {
 	public String run(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
 		session.invalidate();
-		return "memberLoginForm.do";
+		return "home.do";
 	}
 
 }

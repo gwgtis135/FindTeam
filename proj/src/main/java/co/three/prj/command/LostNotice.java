@@ -32,7 +32,14 @@ public class LostNotice implements Command {
 		
 		
 
+		/*
+		 * // 분실물 게시판 출력하기 LfNoticeService lfnNoticeDao = new LfNoticeServiceImpl();
+		 * request.setAttribute("lostNotice", lfnNoticeDao.LfNoticeSelectList());
+		 */
+		
+
 		return "lfnotice/lostNotice";
+
 	}
 
 }
