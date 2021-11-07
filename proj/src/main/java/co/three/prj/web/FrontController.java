@@ -24,6 +24,7 @@ import co.three.prj.command.LostNotice;
 import co.three.prj.command.MemberList;
 import co.three.prj.command.MemberLogin;
 import co.three.prj.command.MemberLoginForm;
+
 import co.three.prj.command.RegisterForm;
 import co.three.prj.command.RegisterMember;
 import co.three.prj.command.Test;
@@ -62,6 +63,7 @@ public class FrontController extends HttpServlet {
 		map.put("/ajaxTest.do", new AjaxTest()); //ajax test form
 		map.put("/ajaxMemberList.do", new AjaxMemberList()); // 실제 처리
 		map.put("/lostNotice.do", new LostNotice());	//분실물 페이지
+		
     
 		map.put("/foundNotice.do", new FoundNotice()); // 습득물 페이지
 		map.put("/lNDetail.do", new LNDetail()); // 습득물 상세페이지.
