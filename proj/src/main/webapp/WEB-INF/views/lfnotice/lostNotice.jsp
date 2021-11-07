@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
         <!DOCTYPE html>
@@ -52,6 +51,13 @@
 					font-size: 22pt;
 					}
 			</style>
+			<script type="text/javascript">
+		function CallNotice(n){
+			frm.lfnnid.value=n;
+			frm.submit();
+		}
+	
+	</script>
         </head>
 
         <body>
@@ -161,7 +167,7 @@
                                         <div role="tabpanel" class="tab-pane fade show active" id="grid-view">
                                             <div class="row">
                                                 <c:forEach items="${lostNotice}" var="lostNotices">
-                                                    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
+                                                    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4" onclick="CallNotice(${lostNotices.LFnid})">
                                                         <div class="products-single fix">
                                                             <div class="box-img-hover">
                                                                 <div class="type-lb">
@@ -199,9 +205,9 @@
                                         </div>
                                         <div role="tabpanel" class="tab-pane fade" id="list-view">
                                             <c:forEach items="${lostNotice}" var="lostNotices">
-                                                <div class="list-view-box" onclick="location.href='';">
+                                                <div class="list-view-box">
                                                     <div class="row">
-                                                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
+                                                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4" onclick="CallNotice(${lostNotices.LFnid})">
                                                             <div class="products-single fix">
                                                                 <div class="box-img-hover">
                                                                     <div class="type-lb">
@@ -255,27 +261,10 @@
                     </div>
                     
                     <!-- End Shop Page -->
-                    <div id="paging">
-						<!-- 1~10까지 있는 페이지의 페이징 -->
-						<c:url var="action" value="/paging.do"/>
-						<c:if test="${param.prev}">
-						    <a href="${action}?page=${param.beginPage-1}">prev</a>
-						</c:if>
-						<c:forEach begin="${param.beginPage}" end="${param.endPage}" step="1" var="index">
-						    <c:choose>
-						        <c:when test="${param.page==index}">
-						            ${index}
-						        </c:when>
-						        <c:otherwise>
-						            <a href="${action}?page=${index}">${index}</a>
-						        </c:otherwise>
-						    </c:choose>
-						</c:forEach>
-						<c:if test="${param.next}">
-						    <a href="${action}?page=${param.endPage+1}">next</a>
-						</c:if>
-					</div>
-					
+                    <div style="margin-bottom: 5%" class="filter-button-group">
+		                 <button class="btn hvr-hover" type="submit">글쓰기</button>
+		                 <button class="btn hvr-hover" type="submit">삭제</button>
+                	</div>
                     <!-- Start Instagram Feed  -->
                     <div class="instagram-box">
                         <div class="main-instagram owl-carousel owl-theme">
@@ -466,6 +455,9 @@
                                             </ul>
                                         </div>
                                     </div>
+                                    <form id="frm" action="lNDetail.do" method="post">
+		           			             <input type="hidden" id="lfnnid" name="lfnid">
+           		           			</form>
                                     <!-- ALL PLUGINS -->
                                     <script src="lnf/js/jquery.superslides.min.js"></script>
                                     <script src="lnf/js/bootstrap-select.js"></script>
@@ -492,5 +484,8 @@
                     <script src="lnf/js/form-validator.min.js"></script>
                     <script src="lnf/js/contact-form-script.js"></script>
                     <script src="lnf/js/custom.js"></script>
+                    
+                 
+                    
         </body>
         </html>
