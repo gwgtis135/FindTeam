@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.three.prj.notice.service.NoticeMapper">
+
+<select id="noticeSelectList" resultType="co.three.prj.notice.service.NoticeVO">
+	select * from nnotice order by nnid asc  	
+
+	</select>
+
+	<select id="noticeSelect" resultType="co.three.prj.notice.service.NoticeVO">
+	select * from nnotice where nnid =#{nnid}	
+	</select>
+
+	<insert id="noticeInsert" parameterType="co.three.prj.notice.service.NoticeVO">
+	insert into nnotice values(b_seq.nextval,#{id},#{name},#{ntitle},#{ncontent},#{ndate},0)
+	</insert>
+
+	<update id="noticeUpdate" parameterType="co.three.prj.notice.service.NoticeVO">
+	update nnotice set ntitle=#{ntitle}, ncontent=#{ncontent} where nnid=#{nnid}
+	</update>
+
+	<delete id="noticeDelete" parameterType="co.three.prj.notice.service.NoticeVO">
+	delete from nnotice where nnid=#{nnid}
+	</delete>
+
+	<update id="noticeHitUpdate" parameterType="co.three.prj.notice.service.NoticeVO">
+	update nnotice set hit=hit+1 where nnid=#{nnid}
+	</update>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</mapper>

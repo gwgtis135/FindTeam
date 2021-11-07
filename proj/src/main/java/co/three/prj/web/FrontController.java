@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import co.three.prj.comm.Command;
 import co.three.prj.command.AdminMember;
 import co.three.prj.command.AjaxMemberList;
+import co.three.prj.command.AjaxNoticeList;
 import co.three.prj.command.AjaxTest;
 import co.three.prj.command.Charts;
 import co.three.prj.command.FoundNotice;
@@ -32,8 +33,7 @@ import co.three.prj.command.MemberLoginForm;
 
 import co.three.prj.command.MyImfoAmend;
 import co.three.prj.command.MyManage;
-
-
+import co.three.prj.command.NoticeMain;
 import co.three.prj.command.RegisterForm;
 import co.three.prj.command.RegisterMember;
 import co.three.prj.command.SearchPw;
@@ -93,8 +93,9 @@ public class FrontController extends HttpServlet {
 		
 		map.put("/introSite.do", new IntroSite()); //오시는길
 		map.put("/introSelf.do", new IntroSelf());//인사말
-		map.put("/adminMember.do", new AdminMember());
-		
+		map.put("/adminMember.do", new AdminMember()); //관리자페이지(미완)
+		map.put("/noticeMain.do", new NoticeMain()); //공지메인
+		map.put("/ajaxNoticeList.do", new AjaxNoticeList()); //공지 리스트
 	
 	}
 
