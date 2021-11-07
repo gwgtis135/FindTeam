@@ -20,8 +20,8 @@
     <meta name="author" content="">
 
     <!-- Site Icons -->
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="shortcut icon" href="lnf/images/favicon.ico" type="lnf/image/x-icon">
+    <link rel="apple-touch-icon" href="lnf/images/apple-touch-icon.png">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="lnf/css/bootstrap.min.css">
@@ -37,25 +37,20 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-
-
-
 </head>
 <body>
 
-
-<div class="shop-detail-box-main">
+ 	
+   <!-- Start Shop Detail  -->
+   <div class="shop-detail-box-main">
         <div class="container">
             <div class="row">
                 <div class="col-xl-5 col-lg-5 col-md-6">
-                    <div id="carousel-example-1" class="single-product-slider carousel slide" data-ride="carousel">
-                        <div class="carousel-inner" role="listbox">
-                            <div class="carousel-item"> <img class="d-block w-100" src="lnf/images/big-img-01.jpg" alt="First slide"> </div>
-                            <div class="carousel-item"> <img class="d-block w-100" src="lnf/images/big-img-02.jpg" alt="Second slide"> </div>
-                            <div class="carousel-item active"> <img class="d-block w-100" src="lnf/images/big-img-03.jpg" alt="Third slide"> </div>
+                    <div id="carousel-example-1" class="single-product-slider carousel slide">
+                        <div class="carousel-inner" >
+                            
+                            <div class="carousel-item active"> <img class="d-block w-100" src="lnf/images/big-img-03.jpg"> </div>
                         </div>
-                      
-                        
                     </div>
                 </div>
                 <div class="col-xl-7 col-lg-7 col-md-6">
@@ -68,7 +63,7 @@
 						<ul>
 							<li>
 								<div class="form-group quantity-box">
-									<label class="control-label">여기에는 무엇을 쓸까요??</label>
+									<label class="control-label">여기에는 지도 api 활용</label>
 									<input class="form-control" value="0" min="0" max="20" type="number">
 								</div>
 							</li>
@@ -145,14 +140,15 @@
             <div class="row my-5">
                 <div class="col-lg-12">
                     <div class="title-all text-center">
-                        <h1>Featured Products</h1>
+                        <h1>최근 1주일 동안 습득한 물건</h1>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet lacus enim.</p>
                     </div>
                     <div class="featured-products-box owl-carousel owl-theme owl-loaded owl-drag">
-                        
-         
-             
-                    <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-4947px, 0px, 0px); transition: all 0.25s ease 0s; width: 7197px;"><div class="owl-item cloned" style="width: 434.8px; margin-right: 15px;"><div class="item">
+                    
+                    <div class="owl-stage-outer">
+                    <div class="owl-stage" style="transform: translate3d(-4947px, 0px, 0px); transition: all 0.25s ease 0s; width: 7197px;">
+                    <div class="owl-item cloned" style="width: 434.8px; margin-right: 15px;">
+                    <div class="item">
                             <div class="products-single fix">
                                 <div class="box-img-hover">
                                     <img src="lnf/images/img-pro-01.jpg" class="img-fluid" alt="Image">
@@ -440,12 +436,19 @@
                                     <h5> $9.79</h5>
                                 </div>
                             </div>
-                        </div></div></div></div><div class="owl-nav"><button type="button" role="presentation" class="owl-prev"><i class="fas fa-arrow-left"></i></button><button type="button" role="presentation" class="owl-next"><i class="fas fa-arrow-right"></i></button></div><div class="owl-dots disabled"></div></div>
+                        </div></div></div></div><div class="owl-nav">
+                        <button type="button" role="presentation" class="owl-prev">
+                        <i class="fas fa-arrow-left"></i></button><button type="button" role="presentation" class="owl-next">
+                        <i class="fas fa-arrow-right"></i></button></div><div class="owl-dots disabled"></div></div>
                 </div>
             </div>
-
+           </div>
         </div>
-    </div>
+    <!-- End Cart -->
+    
+
+    <a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
+
 
  
     

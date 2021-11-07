@@ -1,4 +1,4 @@
-package co.three.prj.lfNotice;
+package co.three.prj.lfNotice.service;
 
 import java.sql.Date;
 

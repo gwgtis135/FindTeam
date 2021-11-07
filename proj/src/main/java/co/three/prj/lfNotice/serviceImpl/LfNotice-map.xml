@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.three.prj.lfNotice.serviceImpl.LfNotice-map">
+
+
+	 <select id="selectLfNoticeList" resultType="co.three.prj.lfNotice.service.LfNoticeVO">
+		
+	
+	 </select>
+
+	 <select id="selectLfNotice" resultType="co.three.prj.lfNotice.service.LfNoticeVO">
+		
+			
+		
+     </select>
+
+	<insert id="insertLfNotice" parameterType="co.three.prj.lfNotice.service.LfNoticeVO">
+ 	
+ 	insert into lfnotice
+ 	values(SEQUENCE_GONGGI_NOTICE.nextval, #{LFntitle}, #{LFncontent}, #{LFdate}, #{LFaddress}, #{LFhit}, #{LFobj}, #{LFimg}, #{LFobjtype}, #{LFstatus}, #{id})
+
+	</insert> 
+
+
+	<delete id="deleteLfNotice" parameterType="co.three.prj.lfNotice.service.LfNoticeVO">
+
+
+	</delete>
+
+	<update id="updateLfNotice" parameterType="co.three.prj.lfNotice.service.LfNoticeVO">
+
+
+	</update>
+
+
+
+
+
+</mapper>

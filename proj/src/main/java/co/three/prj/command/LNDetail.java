@@ -10,7 +10,7 @@ public class LNDetail implements Command {
 	@Override
 	public String run(HttpServletRequest request, HttpServletResponse response) {
 		// 
-		return "notice/lNDetail";
+		return "lfnotice/lNDetail";
 	}
 
 }

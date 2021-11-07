@@ -410,7 +410,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a href="#" class="list-group-item list-group-item-action"> Grocery  <small class="text-muted">(150) </small></a>
+                                <a href="#" class="list-group-item list-group-item-action"> Grocery <small class="text-muted">(150) </small></a>
                                 <a href="#" class="list-group-item list-group-item-action"> Grocery <small class="text-muted">(11)</small></a>
                                 <a href="#" class="list-group-item list-group-item-action"> Grocery <small class="text-muted">(22)</small></a>
                             </div>

@@ -11,7 +11,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import co.three.prj.comm.Command;
 import co.three.prj.command.AjaxMemberList;
 import co.three.prj.command.AjaxTest;
@@ -19,6 +18,8 @@ import co.three.prj.command.Charts;
 import co.three.prj.command.FoundNotice;
 import co.three.prj.command.HomeCommand;
 import co.three.prj.command.LNDetail;
+import co.three.prj.command.LNForm;
+import co.three.prj.command.LfNoticeInsert;
 import co.three.prj.command.Logout;
 import co.three.prj.command.LostNotice;
 import co.three.prj.command.MemberList;
@@ -27,7 +28,7 @@ import co.three.prj.command.MemberLoginForm;
 import co.three.prj.command.RegisterForm;
 import co.three.prj.command.RegisterMember;
 import co.three.prj.command.Test;
-import co.three.prj.command.noticeForm;
+
 
 
 @WebServlet("*.do")
@@ -61,11 +62,12 @@ public class FrontController extends HttpServlet {
 		map.put("/charts.do", new Charts()); //차트 보여주기
 		map.put("/ajaxTest.do", new AjaxTest()); //ajax test form
 		map.put("/ajaxMemberList.do", new AjaxMemberList()); // 실제 처리
-    map.put("/lostNotice.do", new LostNotice());	//분실물 페이지
-    
-    map.put("/foundNotice.do", new FoundNotice()); // 습득물 페이지
-		map.put("/lNDetail.do", new LNDetail()); // 습득물 상세페이지.
-		map.put("/noticeForm.do", new noticeForm()); // 글쓰기 입력폼.
+        
+		map.put("/lostNotice.do", new LostNotice());	//분실물 페이지
+        map.put("/foundNotice.do", new FoundNotice()); //습득물 페이지.
+		map.put("/lNDetail.do", new LNDetail()); // 습득물 상세페이지.		
+		map.put("/lNForm.do", new LNForm()); // 분실물 습득물 입력폼.
+		map.put("lfNoticeInsert.do", new LfNoticeInsert()); //분실물 습득물 입력처리.
 	}
 
 

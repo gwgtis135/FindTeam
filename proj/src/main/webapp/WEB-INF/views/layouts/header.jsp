@@ -80,16 +80,16 @@
           <a class="nav-link" href="home.do">Home</a>
         </li>
         <li class="nav-item @@about">
-          <a class="nav-link" href="about.html">분실물 게시판</a>
+          <a class="nav-link" href="lostNotice.do">분실물 게시판</a>
         </li>
         <li class="nav-item @@service">
-          <a class="nav-link" href="lNDetail.do">습득물 게시판</a>
+          <a class="nav-link" href="foundNotice.do">습득물 게시판</a>
         </li>
         <li class="nav-item @@gallery">
-          <a class="nav-link" href="gallery.html">공공기관 유실물 조회</a>
+          <a class="nav-link" href="lNForm.do">공공기관 유실물 조회</a> 
         </li>
            <li class="nav-item @@contact">
-          <a class="nav-link" href="contact.html">사이트 소개</a>
+          <a class="nav-link" href="lNDetail.do">사이트 소개</a>
         </li>
         <c:if test="${not empty id }"><!-- 로그인 후 보이는 메뉴 -->
         <li class="nav-item @@appointment">

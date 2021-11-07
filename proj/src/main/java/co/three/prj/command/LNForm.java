@@ -5,12 +5,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.three.prj.comm.Command;
 
-public class FoundNotice implements Command {
+public class LNForm implements Command {
 
 	@Override
 	public String run(HttpServletRequest request, HttpServletResponse response) {
-		// 
-		return "lfnotice/foundNotice";
+		// 분실물 습득물 입력폼.
+		return "lfnotice/lNForm";
 	}
 
 }
