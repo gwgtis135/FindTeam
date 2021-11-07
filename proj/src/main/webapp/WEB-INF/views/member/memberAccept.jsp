@@ -63,8 +63,8 @@ body {
 .ocean { 
   height: 7%;
   width:100%;
-  position:absolute;
-  bottom:0;
+  position:relative;
+  bottom:-94px;
   left:0;
   background: #015871;
   z-index: 1;
@@ -74,7 +74,7 @@ body {
 
 .wave {
   background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg) repeat-x; 
-  position: absolute;
+  position: relative;
   top: -198px;
   width: 6400px;
   height: 198px;
@@ -83,7 +83,7 @@ body {
 }
 
 .wave:nth-of-type(2) {
-  top: -175px;
+  top: -373px;
   animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.125s infinite, swell 7s ease -1.25s infinite;
   opacity: 1;
 }
@@ -171,10 +171,7 @@ body {
 
 
 <div align="center" style="width:100%; height:600px;">
-<div class="ocean">
-  <div class="wave"></div>
-  <div class="wave"></div>
-</div>
+
 <div class="animate__animated animate__slideInUp animate__duration: 3s" id="ac">
 <h1 style="color:#43D18B">
 회원가입을<br>
@@ -185,7 +182,10 @@ body {
 <button style="width:170px;height:50px; color:black; border-radius:50px" onclick="location.href='memberLoginForm.do'">로그인하기</button> &nbsp;&nbsp;
 <button style="width:170px;height:50px; color:black; border-radius:50px" onclick="location.href='home.do'">메인으로</button>
 </div>
-
+<div class="ocean">
+  <div class="wave"></div>
+  <div class="wave"></div>
+</div>
 
 </div>
 

@@ -22,7 +22,7 @@ public class AjaxNoticeList implements Command {
 		}catch(JsonProcessingException e) {
 			e.printStackTrace();
 		}
-		System.out.println(notices);
+
 		//members = "{ \"data\" :"+members+"}"; // ajax에 이름달아주기
 		return "ajax:"+notices; //ajax:[{"id":"micol","password":"1234" ...}]
 	//	return "chart/ajaxTest";

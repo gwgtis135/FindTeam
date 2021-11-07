@@ -24,7 +24,7 @@
 	</delete>
 
 	<update id="noticeHitUpdate" parameterType="co.three.prj.notice.service.NoticeVO">
-	update nnotice set hit=hit+1 where nnid=#{nnid}
+	update nnotice set nhit=nhit+1 where nnid=#{nnid}
 	</update>
 
 

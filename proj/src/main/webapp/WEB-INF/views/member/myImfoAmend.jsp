@@ -140,11 +140,7 @@
 			<div class="row">
 				<div class="col-sm-12">
 					<form class="md-float-material form-material" id="frm" name="frm"
-						method="post" action="imfoAmend.do">
-						<div class="text-center">
-							<img src="images/logo-2.png" width="162" height="91.8"
-								alt="logo.png">
-						</div>
+						method="post" action="imfoAmend.do" enctype="multipart/form-data">
 						<div class="auth-box card">
 							<div class="card-block">
 								<div class="row m-b-20">

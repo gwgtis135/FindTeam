@@ -34,6 +34,7 @@ import co.three.prj.command.MemberLoginForm;
 import co.three.prj.command.MyImfoAmend;
 import co.three.prj.command.MyManage;
 import co.three.prj.command.NoticeMain;
+import co.three.prj.command.ReadNotice;
 import co.three.prj.command.RegisterForm;
 import co.three.prj.command.RegisterMember;
 import co.three.prj.command.SearchPw;
@@ -96,7 +97,9 @@ public class FrontController extends HttpServlet {
 		map.put("/adminMember.do", new AdminMember()); //관리자페이지(미완)
 		map.put("/noticeMain.do", new NoticeMain()); //공지메인
 		map.put("/ajaxNoticeList.do", new AjaxNoticeList()); //공지 리스트
-	
+		map.put("/readNotice.do", new ReadNotice());
+		
+		
 	}
 
 

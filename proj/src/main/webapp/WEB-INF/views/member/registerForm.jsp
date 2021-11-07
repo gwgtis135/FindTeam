@@ -52,7 +52,7 @@
 		});
 		$('#idList').DataTable({
 			ajax : {
-				url : "ajaxNoticeList.do",
+				url : "ajaxMemberList.do",
 				dataSrc : '' /* "data"  json type  여긴 변수명을 써주면 된다.*/
 
 			},
@@ -251,10 +251,11 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-sm-12">
-					<form class="md-float-material form-material" id="frm" name="frm" method="post"
-						action="registerMember.do">
+					<form class="md-float-material form-material" id="frm" name="frm"
+						method="post" action="registerMember.do">
 						<div class="text-center">
-							<img src="images/logo-2.png" width="162" height="91.8"  alt="logo.png">
+							<img src="images/logo-2.png" width="162" height="91.8"
+								alt="logo.png">
 						</div>
 						<div class="auth-box card">
 							<div class="card-block">
@@ -324,7 +325,14 @@
 									<span class="form-bar"></span> <label class="float-label">&#11088
 										상세 주소를 입력해주세요!</label>
 								</div>
-							
+								<div class="form-group form-primary">
+									 프로필 사진을 추가해보세요! <span
+										class="form-bar"></span>
+								</div>
+								<div class="form-group form-primary">
+									<input type="file" name="picture" class="form-control">
+									<span class="form-bar"></span>
+								</div>
 
 								<br> <br>
 								<div class="row m-t-25 text-left">
@@ -360,7 +368,8 @@
 								<hr />
 								<div class="row">
 									<div class="col-md-9">
-										<p class="text-inverse text-left m-b-0" id="mop">감사합니다 &#9829; </p>
+										<p class="text-inverse text-left m-b-0" id="mop">감사합니다
+											&#9829;</p>
 										<br>
 										<p class="text-inverse text-left">
 											<a href="home.do"><b>메인페이지로 돌아가기</b></a>
@@ -376,7 +385,7 @@
 						<input type="hidden" name="hiddenId" value="0"> <input
 							type="hidden" name="author" value="USER">
 					</form>
-					<table id="idList" style="display:none">
+					<table id="idList" style="display: none">
 						<thead>
 							<tr>
 								<th>id</th>
@@ -393,17 +402,21 @@
 	</section>
 
 	<!-- Required Jquery -->
-<script type="text/javascript" src="assets/js/jquery/jquery.min.js "></script>
-<script type="text/javascript" src="assets/js/jquery-ui/jquery-ui.min.js "></script>
-<script type="text/javascript" src="assets/js/popper.js/popper.min.js"></script>
-<script type="text/javascript" src="assets/js/bootstrap/js/bootstrap.min.js "></script>
-<!-- waves js -->
-<script src="assets/pages/waves/js/waves.min.js"></script>
-<!-- jquery slimscroll js -->
-<script type="text/javascript" src="assets/js/jquery-slimscroll/jquery.slimscroll.js"></script>
-<script type="text/javascript" src="assets/js/common-pages.js"></script>
+	<script type="text/javascript" src="assets/js/jquery/jquery.min.js "></script>
+	<script type="text/javascript"
+		src="assets/js/jquery-ui/jquery-ui.min.js "></script>
+	<script type="text/javascript" src="assets/js/popper.js/popper.min.js"></script>
+	<script type="text/javascript"
+		src="assets/js/bootstrap/js/bootstrap.min.js "></script>
+	<!-- waves js -->
+	<script src="assets/pages/waves/js/waves.min.js"></script>
+	<!-- jquery slimscroll js -->
+	<script type="text/javascript"
+		src="assets/js/jquery-slimscroll/jquery.slimscroll.js"></script>
+	<script type="text/javascript" src="assets/js/common-pages.js"></script>
 	<script src="vendor/datatables/jquery.dataTables.min.js"></script>
-	<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script><!-- Page level custom scripts -->
-    <script src="js/demo/datatables-demo.js"></script>
+	<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+	<!-- Page level custom scripts -->
+	<script src="js/demo/datatables-demo.js"></script>
 </body>
 </html>

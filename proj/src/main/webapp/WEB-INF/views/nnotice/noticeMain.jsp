@@ -40,6 +40,7 @@
 	
 		
 		$('#table').DataTable({
+			"info": false,
 			ajax : {
 				url : "ajaxNoticeList.do",
 				dataSrc : '' /* "data"  json type  여긴 변수명을 써주면 된다.*/
@@ -73,11 +74,15 @@
 		 var table = $('#table').DataTable();	
 		$('#table tbody').on('click', 'tr', function () {
 		    var data = table.row( this ).data();
-		    alert( 'You clicked on '+data.nnid+'\'s row' );
+		    ReadNotice(data.nnid);
 		} );
 	});
 	
-	
+	function ReadNotice(n){
+		frm.nnid.value=n;
+		frm.submit();
+		
+	}
 
 	
 </script>
@@ -123,6 +128,9 @@
 				</div>
 			</div>
 		</div>
+		<form id="frm" name="frm" method="post" action="readNotice.do">
+		<input type="hidden" id="nnid" name="nnid">
+		</form>
 	</div>
 
 
