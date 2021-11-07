@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.three.prj.lfNotice.LfNoticeMapper">
+
+	<select id = "LfNoticeSelectList" resultType="co.three.prj.lfNotice.LfNoticeVO">
+	select * from lfnotice
+	</select>
+
+	<select id="LfNoticeSelect" resultType="co.three.prj.lfNotice.LfNoticeVO">
+		select * from lfnotice where lFnid = #{lFnid} <!-- 내가써준 vo와 이름이 같아야함 -->
+	</select>
+	
+	<insert id="LfNoticeInsert" parameterType="co.three.prj.lfNotice.LfNoticeVO">
+		insert into lfnotice
+			values(SEQUENCE_LFNOTICE.nextval, #{lFTitle}, #{lFncontent}, sysdate, #{lFnImg}, #{lFnobjType}, #{lFnStatus}, #{id})
+	</insert>
+	
+	<delete id="LfNoticeDelete" parameterType="co.three.prj.lfNotice.LfNoticeVO">
+		delete from lfnotice where lFnid = #{lFnid}
+	</delete>
+	
+	<update id="LfNoticeUpdate" parameterType="co.three.prj.lfNotice.LfNoticeVO">
+		update lfnotice set lFTitle = #{lFTitle}, lFncontent = #{lFncontent}, lFnDate= #{lFnDate}, lFnObj=#{lFnObj}, lFnImg=#{lFnImg}, lFnobjType= #{lFnobjType} 
+		where lFnid = #{lFnid}
+	</update>
+		
+	<update id="LfNoticeHitUpdate" parameterType="co.three.prj.lfNotice.LfNoticeVO">
+		update lfnotice set lFnHit = lFnHit+1 
+		where lFnid = #{lFnid}
+	</update>
+	
+	</mapper>
