@@ -22,9 +22,10 @@ import co.three.prj.command.HomeCommand;
 import co.three.prj.command.ImfoAmend;
 import co.three.prj.command.IntroSelf;
 import co.three.prj.command.IntroSite;
-import co.three.prj.command.LNDetail;
+import co.three.prj.command.LNForm;
 import co.three.prj.command.Logout;
 import co.three.prj.command.LostNotice;
+import co.three.prj.command.LostNoticeSelect;
 import co.three.prj.command.MemberList;
 import co.three.prj.command.MemberLogin;
 import co.three.prj.command.MemberLoginForm;
@@ -72,11 +73,12 @@ public class FrontController extends HttpServlet {
 		map.put("/ajaxTest.do", new AjaxTest()); //ajax test form
 		map.put("/ajaxMemberList.do", new AjaxMemberList()); // 실제 처리
 
-	    map.put("/lostNotice.do", new LostNotice());	//분실물 페이지   
-	    map.put("/foundNotice.do", new FoundNotice()); // 습득물 페이지
+        map.put("/lostNotice.do", new LostNotice());	//분실물 페이지   
+        map.put("/foundNotice.do", new FoundNotice()); // 습득물 페이지
 
-		map.put("/lNDetail.do", new LNDetail()); // 습득물 상세페이지.
-		map.put("/noticeForm.do", new noticeForm()); // 글쓰기 입력폼.
+
+		map.put("/lostNoticeSelect.do", new LostNoticeSelect()); // 분실물 상세페이지.
+		map.put("/lNForm.do", new LNForm());  // 분실물 습득물 입력폼. 
 
 		map.put("/totalNotice.do", new TotalNotice()); //유실물 통합 페이지.
 
