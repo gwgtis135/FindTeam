@@ -32,8 +32,7 @@ import co.three.prj.command.MemberLoginForm;
 
 import co.three.prj.command.MyImfoAmend;
 import co.three.prj.command.MyManage;
-import co.three.prj.command.NaverLogin;
-import co.three.prj.command.NaverSave;
+
 
 import co.three.prj.command.RegisterForm;
 import co.three.prj.command.RegisterMember;
@@ -77,6 +76,7 @@ public class FrontController extends HttpServlet {
         map.put("/lostNotice.do", new LostNotice());	//분실물 페이지   
         map.put("/foundNotice.do", new FoundNotice()); // 습득물 페이지
 
+
 		map.put("/lostNoticeSelect.do", new LostNoticeSelect()); // 분실물 상세페이지.
 		map.put("/lNForm.do", new LNForm());  // 분실물 습득물 입력폼. 
 
@@ -85,7 +85,7 @@ public class FrontController extends HttpServlet {
 		
 		map.put("/registerForm.do", new RegisterForm()); //회원 가입 폼 호출
 		map.put("/registerMember.do", new RegisterMember()); // 회원 가입
-		map.put("/naverLogin.do", new NaverLogin()); //네이버 콜백용 //안됨
+
 		map.put("/searchPw.do", new SearchPw()); //비밀번호 찾기
 		map.put("/myManage.do", new MyManage()); // 내정보 관리
 		map.put("/myImfoAmend.do", new MyImfoAmend()); //내정보 수정
