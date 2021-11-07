@@ -97,7 +97,9 @@ display:none;
             <li><a class="dropdown-item @@contactDetails" href="introSite.do">오시는 길</a></li>
           </ul>
          </li>
-        
+        <li class="nav-item @@notice">
+          <a class="nav-link" href="noticeMain.do">공지사항</a>
+        </li>
         <li class="nav-item @@about">
           <a class="nav-link" href="lostNotice.do">분실물 게시판</a>
         </li>

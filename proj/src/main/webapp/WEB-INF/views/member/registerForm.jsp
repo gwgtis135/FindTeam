@@ -52,7 +52,7 @@
 		});
 		$('#idList').DataTable({
 			ajax : {
-				url : "ajaxMemberList.do",
+				url : "ajaxNoticeList.do",
 				dataSrc : '' /* "data"  json type  여긴 변수명을 써주면 된다.*/
 
 			},
@@ -315,7 +315,7 @@
 										입력해주세요!</label>
 								</div>
 								<div class="form-group form-primary">
-									<input type="text" name="address" class="form-control"
+									<input type="text" name="address" class="form-control" readonly
 										id="address_kakao"> <span class="form-bar"></span> <label
 										class="float-label">&#11088 주소를 입력해주세요!</label>
 								</div>

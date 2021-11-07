@@ -138,6 +138,16 @@ body {
         <li class="nav-item active">
           <a class="nav-link" href="home.do">Home</a>
         </li>
+                 <li class="nav-item dropdown @@contacts">
+         <a class="nav-link dropdown-toggle" href="#!" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">사이트 소개</a>
+ 			<ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+            <li><a class="dropdown-item @@contact" href="introSelf.do">인사말</a></li>      
+            <li><a class="dropdown-item @@contactDetails" href="introSite.do">오시는 길</a></li>
+          </ul>
+         </li>
+         <li class="nav-item @@notice">
+          <a class="nav-link" href="noticeMain.do">공지사항</a>
+        </li>
         <li class="nav-item @@about">
           <a class="nav-link" href="about.html">분실물 게시판</a>
         </li>
@@ -147,9 +157,7 @@ body {
         <li class="nav-item @@gallery">
           <a class="nav-link" href="gallery.html">공공기관 유실물 조회</a>
         </li>
-           <li class="nav-item @@contact">
-          <a class="nav-link" href="contact.html">사이트 소개</a>
-        </li>
+
     
     
       </ul>
