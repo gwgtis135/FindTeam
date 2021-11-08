@@ -52,7 +52,7 @@
 											frm.submit();	
 									} else {
 										alert("주소를 입력하세요");
-										frm.detailAddress.focus();
+										frm.address.focus();
 										return null;
 									}				
 						} else {
@@ -179,6 +179,11 @@
 
 								<div class="form-group form-primary">
 									주소:<input type="text" name="address" class="form-control" value="${member.address}">
+									<span class="form-bar"></span> 
+								</div>
+								
+								<div class="form-group form-primary">
+									프로필사진:<input type="file" name="picture" class="form-control" >
 									<span class="form-bar"></span> 
 								</div>
 

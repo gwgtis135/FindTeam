@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.three.prj.member.service.MemberMapper">
+	
 	<select id="selectMember" resultType="co.three.prj.member.service.MemberVO">
 		select * from users where id = #{id}
 		<if test="password != null">
@@ -14,7 +15,7 @@
 
 
 	<insert id="insertMember" parameterType="co.three.prj.member.service.MemberVO">
-	insert into users values(#{id},#{password},#{name},#{tel},#{address},#{author})
+	insert into users values(#{id},#{password},#{name},#{tel},#{address},#{author},#{picture})
 	</insert>
 	
 	<update id="ackMember" parameterType="co.three.prj.member.service.MemberVO">
@@ -22,7 +23,7 @@
 	</update>
 
 	<update id="updateMember" parameterType="co.three.prj.member.service.MemberVO">
-	update users set password=#{password},name=#{name},tel=#{tel},address=#{address}, author=#{author} where id=#{id}
+	update users set password=#{password},name=#{name},tel=#{tel},address=#{address}, author=#{author},picture=#{picture} where id=#{id}
 	</update>
 
 	<delete id="deleteMember" parameterType="co.three.prj.member.service.MemberVO">

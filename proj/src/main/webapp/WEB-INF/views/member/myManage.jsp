@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -173,6 +174,27 @@
 									role="tabpanel" aria-labelledby="headingfive">
 									<div class="accordion-content accordion-desc">
 										<p>${member.address }</p>
+									</div>
+								</div>
+							</div>
+							<div class="accordion-panel">
+								<div class=" accordion-heading" role="tab" id="headingsix">
+									<h3 class="card-title accordion-title">
+										<a class="accordion-msg waves-effect waves-dark"
+											data-toggle="collapse" data-parent="#accordion"
+											href="#collapsesix" aria-expanded="false"
+											aria-controls="collapsefive"> 프로필사진 </a>
+									</h3>
+								</div>
+								<div id="collapsesix" class="panel-collapse collapse"
+									role="tabpanel" aria-labelledby="headingsix">
+									<div class="accordion-content accordion-desc">
+									<c:if test="${member.picture eq null}">
+										<img src="images/flower.jpg" loading="lazy" class="img-fluid" width="250px"  alt="picture">
+									</c:if>
+									<c:if test="${not empty member.picture }">
+										<img src="images/${member.picture}" loading="lazy" class="img-fluid" width="250px"  alt="picture">
+									</c:if>
 									</div>
 								</div>
 							</div>

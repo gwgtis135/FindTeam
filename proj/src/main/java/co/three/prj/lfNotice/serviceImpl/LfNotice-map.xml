@@ -3,7 +3,16 @@
 <mapper namespace="co.three.prj.lfNotice.LfNoticeMapper">
 
 	<select id = "LfNoticeSelectList" resultType="co.three.prj.lfNotice.LfNoticeVO">
-	select * from lfnotice
+		SELECT *
+		FROM
+		    (
+		        SELECT 
+		            ROWNUM AS RNUM, T1.*
+		        FROM
+		            lfnotice T1
+		    )
+		WHERE
+		    RNUM BETWEEN #{start} AND #{end}
 	</select>
 
 	<select id="LfNoticeSelect" resultType="co.three.prj.lfNotice.LfNoticeVO">

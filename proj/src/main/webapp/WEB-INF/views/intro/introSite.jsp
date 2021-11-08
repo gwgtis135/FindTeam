@@ -101,8 +101,7 @@ function searchMap(){
 	<script src="assets/js/vertical/vertical-layout.min.js"></script>
 	<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
 	<script type="text/javascript" src="assets/js/script.js"></script>
-
-	<script>
+<script>
 		var mapOptions = {
 			center : new naver.maps.LatLng(35.869093153814326,
 					128.5932699697308),
@@ -119,5 +118,6 @@ function searchMap(){
 		var marker = new naver.maps.Marker(markerOptions);
 	</script>
 
+	
 </body>
 </html>
