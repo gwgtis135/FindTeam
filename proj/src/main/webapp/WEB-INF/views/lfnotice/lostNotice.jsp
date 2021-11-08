@@ -170,13 +170,16 @@
                                         <div role="tabpanel" class="tab-pane fade show active" id="grid-view">
                                             <div class="row">
                                                 <c:forEach items="${lostNotice}" var="lostNotices">
+
+                                                    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4" onclick="CallNotice(${lostNotices.lFnid})">
+
                                                     <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4" onclick="CallNotice(${lostNotices.LFnid })">
-                                                        <div class="products-single fix">
+                                           <div class="products-single fix">
                                                             <div class="box-img-hover">
                                                                 <div class="type-lb">
-                                                                    <p class="sale">${lostNotices.LFnStatus}</p>
+                                                                    <p class="sale">${lostNotices.lFnStatus}</p>
                                                                 </div>
-                                                                <img src="${lostNotices.LFnImg}" class="img-fluid"
+                                                                <img src="${lostNotices.lFnImg}" class="img-fluid"
                                                                     alt="Image">
                                                                 <div class="mask-icon">
                                                                     <ul>
@@ -197,9 +200,9 @@
                                                                 </div>
                                                             </div>
                                                             <div class="why-text">
-                                                                <h4>${lostNotices.LFnDate}</h4>
-                                                                <h4>${lostNotices.LFnAddress}</h4>
-                                                                <h4>${lostNotices.LFnObj}</h4>
+                                                                <h4>${lostNotices.lFnDate}</h4>
+                                                                <h4>${lostNotices.lFnAddress}</h4>
+                                                                <h4>${lostNotices.lFnObj}</h4>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -210,13 +213,13 @@
                                             <c:forEach items="${lostNotice}" var="lostNotices">
                                                 <div class="list-view-box">
                                                     <div class="row">
-                                                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4" onclick="CallNotice(${lostNotices.LFnid})">
+                                                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4" onclick="CallNotice(${lostNotices.lFnid})">
                                                             <div class="products-single fix">
                                                                 <div class="box-img-hover">
                                                                     <div class="type-lb">
-                                                                        <p class="new">${lostNotices.LFnStatus}</p>
+                                                                        <p class="new">${lostNotices.lFnStatus}</p>
                                                                     </div>
-                                                                    <img src="${lostNotices.LFnImg}" class="img-fluid"
+                                                                    <img src="${lostNotices.lFnImg}" class="img-fluid"
                                                                         alt="Image">
                                                                     <div class="mask-icon">
                                                                         <ul>
@@ -242,9 +245,9 @@
                                                         </div>
                                                         <div class="col-sm-6 col-md-6 col-lg-8 col-xl-8">
                                                             <div class="why-text full-width">
-                                                                <h3>제목: ${lostNotices.LFnTitle}</h3>
-                                                                <h5>주소: ${lostNotices.LFnAddress}</h5>
-                                                                <h6>내용 ${lostNotices.LFncontent}</h6>
+                                                                <h3>제목: ${lostNotices.lFnTitle}</h3>
+                                                                <h5>주소: ${lostNotices.lFnAddress}</h5>
+                                                                <h6>내용 ${lostNotices.lFncontent}</h6>
                                                             </div>
                                                         </div>
                                                     </div>
