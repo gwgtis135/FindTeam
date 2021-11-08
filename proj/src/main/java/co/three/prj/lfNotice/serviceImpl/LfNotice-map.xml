@@ -21,7 +21,7 @@
 	
 	<insert id="LfNoticeInsert" parameterType="co.three.prj.lfNotice.LfNoticeVO">
 		insert into lfnotice
-			values(SEQUENCE_LFNOTICE.nextval, #{lFTitle}, #{lFncontent}, sysdate, #{lFnImg}, #{lFnobjType}, #{lFnStatus}, #{id})
+			values(SEQUENCE_LFNOTICE.nextval, #{lFnTitle}, #{lFncontent}, #{lFnDate}, #{lFnAddress}, 1, #{lFnObj}, #{lFnImg}, #{lFnobjType}, #{lFnStatus}, #{id})
 	</insert>
 	
 	<delete id="LfNoticeDelete" parameterType="co.three.prj.lfNotice.LfNoticeVO">

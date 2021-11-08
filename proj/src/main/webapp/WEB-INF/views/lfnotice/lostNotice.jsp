@@ -304,7 +304,7 @@ body {
 		</div>
 	</div>
 
-	<!-- End Footer  -->
+
 
 
 	<!-- ALL JS FILES -->
