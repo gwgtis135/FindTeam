@@ -10,8 +10,9 @@ import co.three.prj.member.service.MemberService;
 import co.three.prj.member.service.MemberVO;
 
 public class MemberServiceImpl implements MemberService {
-	private SqlSession sqlSession = DataSource.getInstance().openSession(true);
+	private SqlSession sqlSession = DataSource.getInstance().openSession(true); 
 	private MemberMapper map = sqlSession.getMapper(MemberMapper.class);
+	
 	@Override
 	public List<MemberVO> selectMemberList() {
 

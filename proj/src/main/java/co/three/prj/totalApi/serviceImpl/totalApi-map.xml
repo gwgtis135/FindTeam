@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.three.prj.totalApi.service.TotalApiService">
+
+	<insert id="insertTotalApi"
+		parameterType="co.three.prj.totalApi.service.TotalApiVO">
+		insert into total_notice values(#{atcId}, #{depPlace}, #{fdFilePathImg},
+		#{fdPrdtNm}, #{fdSbjt}, #{fdSn}, #{fdYmd}, #{prdtClNm}, #{rNum})
+	</insert>
+
+	<!-- <select id="selectTotalList" resultType="co.three.prj.totalApi.service.TotalApiVO"> 
+		select rNum, prdtClNm, fdPrdtNm, fdYmd, depPlace from total_notice </select> -->
+
+	<select id="selectTotalList"
+		resultType="co.three.prj.totalApi.service.TotalApiVO">
+		SELECT * FROM (SELECT A.*, ROWNUM RN FROM (SELECT * FROM total_notice ) A )
+		B
+		WHERE RN BETWEEN #{startRow} AND #{endRow} ORDER BY rNum
+	</select>
+
+	<delete id="deleteTotalApi">
+		truncate table total_notice
+	</delete>
+
+	<select id="searchCount" resultType="int">
+		select count(*) from total_notice
+		where fdPrdtNm like '%'||#{searchBox}||'%'
+	</select>
+
+	<select id="selectSearchList"
+		resultType="co.three.prj.totalApi.service.TotalApiVO">
+		SELECT * FROM (SELECT A.*, ROWNUM RN FROM
+		(SELECT * FROM total_notice where fdPrdtNm like '%'||#{searchBox}||'%' ) A ) B
+		WHERE RN BETWEEN #{startRow} AND #{endRow} ORDER BY rNum
+	</select>
+	
+	<select id="selectTotalDetail" resultType="co.three.prj.totalApi.service.TotalApiVO">
+		select* from total_notice where rNum = #{rNum}
+	</select>
+
+</mapper>

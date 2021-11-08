@@ -47,7 +47,7 @@ WEBSITE: https://themefisher.com
 <body>
 	<!-- 배너 이미지 -->
 	<div class="col-12" style="padding: 0">
-		<img src="images/banner.jpg">
+		<img src="images/banner.jpg" class="img-fluid">
 	</div>
 	<!--Service Section: 최근 분실물 습득 현황-->
 	<section class="service-section bg-gray section">
