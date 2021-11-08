@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jstl/core"  prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,23 +44,23 @@
 <section class="section style-three pb-0">
   <div class="container">
     <div class="row">
-      <div class="col-lg-6 order-1 order-lg-0">
+      <div class="col-lg-12 order-1 order-lg-0">
         <div class="contact-area style-two pl-0 pr-0 pr-lg-4">
           <div class="section-title">
-            <h3>분실물 습득물<span>작성란</span></h3>
+            <h3 align="center">분실물 등록</h3>
           </div>
           
-           <form id="frm" name="contact_form" class="default-form contact-form" action="LfNoticeInsert.do" method="post">
+         <form id="frm" name="contact_form" class="default-form contact-form" enctype="multipart/form-data" action="LfNoticeInsert.do" method="post">
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
-                  <input class="form-control" type="text" name="lfntitle" placeholder="제목" required="" ><!--  -->
+                  <input class="form-control" type="text" id="lfntitle" name="lfntitle" placeholder="제목" required="" ><!--  -->
                 </div>
                 <div class="form-group">
-                  <input class="form-control" type="text" name="lfnobj" placeholder="물건이름" required="">
+                  <input class="form-control" type="text" id="lfnobj" name="lfnobj" placeholder="물건이름" required="">
                 </div>
                 <div class="form-group">
-                  <select class="form-control" name="subject"  >
+                  <select class="form-control" name="lFnStatus" value="" >
                     <option>분실물</option>
                     <option>습득물</option>
                   </select>
@@ -67,14 +68,14 @@
               </div>
               <div class="col-md-6">
                 <div class="form-group">
-                  <input class="form-control" type="text" name="lfnaddress" placeholder="주소" required="">
+                  <input class="form-control" type="text" id="lfnaddress" name="lfnaddress" placeholder="주소" required="">
                 </div>
                 <div class="form-group">
-                  <input class="" type="Date" name="lfnDate" placeholder="날짜" required="" id="" autocomplete="off">
+                  <input class="" type="Date" id="lfnDate" name="lfnDate" placeholder="날짜" required="" autocomplete="off">
                  <!--  <i class="fa fa-calendar" aria-hidden="true"></i>  -->
                 </div>
                 <div class="form-group">
-                  <select class="form-control" name="subject">
+                  <select class="form-control" name="lFnobjType" value="">
                     <option>전자기기</option>
                     <option>스마트폰</option>
                     <option>의류</option>
@@ -85,38 +86,28 @@
               </div>
               <div class="col-md-12">
                 <div class="form-group">
-                  <textarea class="form-control" name="form_message" placeholder="Your Message" required=""></textarea>
+                  <textarea class="form-control" id="lFncontent" name="lFncontent" placeholder="Your Message" required=""></textarea>
                 </div>
                 <div class="form-group text-center">
-                  <button type="submit" class="btn-style-one">등록하기</button>
-                 
-				<input type="reset" value="취 소">
+                  <div class="button" align="center">
+                   <input type="file" id="lFnimg" name="lFnimg" src="lnf/images/스타벅스텀블러.jpg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                   </div> 
+                <input style="display:none" type="file" id="chooseFile" name="chooseFile" accept="image/*" onchange="loadFile(this)">
+                       
+                <button type="submit" class="btn-style-one">등록하기</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="reset" value="취 소">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<input type="button" value="목 록" onclick="location.href='lostNotice.do'">
                 </div>
               </div>
             </div>
-         </form>
+          </form>  
         </div>
       </div>
-      
-      <div class="col-lg-6 mb-4 mb-lg-0 order-0 order-lg-1">
-        <div class="appointment-image-holder ml-0 ml-lg-4">
-          <figure>
-            <img id="lFnImg" name="lFnImg" class="w-100" src="form/images/background/zflip.jpg" alt="zflip"> <!-- 이미지 사진 들어가는 곳. -->
-            
-              <form method="post" enctype="multipart/form-data"> <!-- 이미지 사진 업로드 할 수 있게 -->
-                 <div class="button" align="center">
-                  <label for="chooseFile" >
-                     👉 CLICK HERE! 👈
-                     </label>
-                       </div>
-                        <input style="display:none" type="file" id="chooseFile" name="chooseFile" accept="image/*" onchange="loadFile(this)">
-                 </form>
-          </figure>
-        </div>
-      </div>
+    
+      </div> 
     </div>
   </div>
+
 </section>
 <!-- End Section -->
 	
@@ -146,6 +137,5 @@
 
 <!-- script js -->
 <script src="form/js/script.js"></script>
-
 </body>
 </html>
