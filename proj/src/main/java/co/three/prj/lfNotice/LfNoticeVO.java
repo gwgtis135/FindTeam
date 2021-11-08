@@ -19,6 +19,6 @@ public class LfNoticeVO {
 	private String lFnImg;
 	private String lFnobjType; // 물건타입(가방, 핸드폰...)
 	private String lFnStatus; // 페이지 상태(분실,습득)
-	private String id; // 회원 id
+	private String id; // 회원 id 입니다
 
 }
