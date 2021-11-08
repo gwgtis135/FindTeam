@@ -23,7 +23,7 @@ public class RegisterMember implements Command {
 		try {
 			MultipartRequest multipartRequest =
 					new MultipartRequest(request,saveFolder,1024*1024*100,"UTF-8",
-							new DefaultFileRenamePolicy());
+							new DefaultFileRenamePolicy()); 
 		}catch(Exception e) {
 			e.printStackTrace();
 		}

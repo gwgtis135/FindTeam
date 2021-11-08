@@ -53,7 +53,7 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
-                  <input class="form-control" type="text" name="lfntitle" placeholder="제목" required="">
+                  <input class="form-control" type="text" name="lfntitle" placeholder="제목" required="" ><!--  -->
                 </div>
                 <div class="form-group">
                   <input class="form-control" type="text" name="lfnobj" placeholder="물건이름" required="">
