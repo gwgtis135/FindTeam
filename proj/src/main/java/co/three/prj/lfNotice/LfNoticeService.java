@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface LfNoticeService {
 
-	List<LfNoticeVO> LfNoticeSelectList();
+	List<LfNoticeVO> LfNoticeSelectList(LfNoticeVO vo);
 	LfNoticeVO LfNoticeSelect(LfNoticeVO vo);
 	int LfNoticeInsert(LfNoticeVO vo);
 	int LfNoticeDelete(LfNoticeVO vo);

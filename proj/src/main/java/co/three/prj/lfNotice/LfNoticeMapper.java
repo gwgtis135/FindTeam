@@ -3,7 +3,7 @@ package co.three.prj.lfNotice;
 import java.util.List;
 
 public interface LfNoticeMapper {
-	List<LfNoticeVO> LfNoticeSelectList();
+	List<LfNoticeVO> LfNoticeSelectList(LfNoticeVO vo);
 	LfNoticeVO LfNoticeSelect(LfNoticeVO vo);
 	int LfNoticeInsert(LfNoticeVO vo);
 	int LfNoticeDelete(LfNoticeVO vo);
