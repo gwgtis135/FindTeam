@@ -3,7 +3,7 @@
 <mapper namespace="co.three.prj.notice.service.NoticeMapper">
 
 <select id="noticeSelectList" resultType="co.three.prj.notice.service.NoticeVO">
-	select * from nnotice order by nnid asc  	
+	select * from nnotice order by nnid desc  	
 
 	</select>
 

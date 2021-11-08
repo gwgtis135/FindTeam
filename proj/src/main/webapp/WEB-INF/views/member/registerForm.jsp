@@ -115,7 +115,13 @@
 										if (frm.detailAddress.value != "") {
 											if(!($("#inputch").is(":checked"))){
 											let c=confirm('알림서비스에 동의하지 않으시면 비밀번호 분실시 찾을 수 없습니다. 계속하시겠습니까?');
-											if(c==true){frm.submit();}
+											if(c==true){
+													frm.submit();
+												
+												
+												
+												
+												}
 											else{return null;}
 											}else{frm.submit();}
 													
@@ -251,7 +257,7 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-sm-12">
-					<form class="md-float-material form-material" id="frm" name="frm"
+					<form class="md-float-material form-material" id="frm" name="frm" enctype="multipart/form-data"
 						method="post" action="registerMember.do">
 						<div class="text-center">
 							<img src="images/logo-2.png" width="162" height="91.8"
@@ -330,7 +336,7 @@
 										class="form-bar"></span>
 								</div>
 								<div class="form-group form-primary">
-									<input type="file" name="picture" class="form-control">
+									<input type="file" name="picture" id="picture" class="form-control">
 									<span class="form-bar"></span>
 								</div>
 

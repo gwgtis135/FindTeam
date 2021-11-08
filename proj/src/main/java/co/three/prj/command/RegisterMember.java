@@ -16,24 +16,36 @@ public class RegisterMember implements Command {
 	@Override
 	public String run(HttpServletRequest request, HttpServletResponse response) {
 		//멤버 가입처리
-		String saveFolder="c:\\upload";
+		String saveFolder=request.getServletContext().getRealPath("images");
 		int n =0;
 		MemberVO vo = new MemberVO();
 		MemberService memberDao = new MemberServiceImpl();
 		try {
-			MultipartRequest multipartRequest =
-					new MultipartRequest(request,saveFolder,1024*1024*100,"UTF-8",
-							new DefaultFileRenamePolicy()); 
+			MultipartRequest multipartRequest = new MultipartRequest(request,saveFolder,1024*1024*100,"utf-8",new DefaultFileRenamePolicy());
+			
+			String fileName = multipartRequest.getFilesystemName("picture");
+			
+			String original = multipartRequest.getOriginalFileName("picture");
+
+			vo.setId(multipartRequest.getParameter("id"));
+			vo.setPassword(multipartRequest.getParameter("password"));
+			vo.setName(multipartRequest.getParameter("name"));
+			vo.setAddress(multipartRequest.getParameter("address")+" "+multipartRequest.getParameter("detailAddress"));
+			vo.setAuthor(multipartRequest.getParameter("author"));		
+			vo.setTel(multipartRequest.getParameter("tel"));
+			if(fileName==null) {
+				int a = (int)Math.floor(Math.random()*10);
+				System.out.println(a);
+				fileName="flower"+a+".jpg";
+			}
+			vo.setPicture(fileName);
+			n=memberDao.insertMember(vo);
+			
+			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		vo.setId(request.getParameter("id"));
-		vo.setPassword(request.getParameter("password"));
-		vo.setName(request.getParameter("name"));
-		vo.setAddress(request.getParameter("address")+" "+request.getParameter("detailAddress"));
-		vo.setAuthor(request.getParameter("author"));		
-		vo.setTel(request.getParameter("tel"));
-		n=memberDao.insertMember(vo);
+
 
 		String viewPage = null;
 		if(n!=0) {

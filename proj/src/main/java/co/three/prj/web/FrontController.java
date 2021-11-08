@@ -24,14 +24,12 @@ import co.three.prj.command.ImfoAmend;
 import co.three.prj.command.IntroSelf;
 import co.three.prj.command.IntroSite;
 import co.three.prj.command.LNForm;
-import co.three.prj.command.LfNoticeInsert;
 import co.three.prj.command.Logout;
 import co.three.prj.command.LostNotice;
 import co.three.prj.command.LostNoticeSelect;
 import co.three.prj.command.MemberList;
 import co.three.prj.command.MemberLogin;
 import co.three.prj.command.MemberLoginForm;
-
 import co.three.prj.command.MyImfoAmend;
 import co.three.prj.command.MyManage;
 import co.three.prj.command.NoticeMain;
@@ -41,7 +39,6 @@ import co.three.prj.command.RegisterMember;
 import co.three.prj.command.SearchPw;
 import co.three.prj.command.Test;
 import co.three.prj.command.TotalNotice;
-import co.three.prj.command.noticeForm;
 
 
 @WebServlet("*.do")
@@ -81,7 +78,7 @@ public class FrontController extends HttpServlet {
 
 		map.put("/lostNoticeSelect.do", new LostNoticeSelect()); // 분실물 상세페이지.
 		map.put("/lNForm.do", new LNForm());  // 분실물 습득물 입력폼. 
-		map.put("/LfNoticeInsert.do", new LfNoticeInsert());  // 분실물 입력 처리.
+		//map.put("/LfNoticeInsert.do", new LfNoticeInsert());  // 분실물 입력 처리.
 		map.put("/totalNotice.do", new TotalNotice()); //유실물 통합 페이지.
 
 		

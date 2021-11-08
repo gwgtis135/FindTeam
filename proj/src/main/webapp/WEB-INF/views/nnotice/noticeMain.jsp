@@ -34,6 +34,15 @@
 	href="assets/css/jquery.mCustomScrollbar.css">
 	<link href="vendor/datatables/dataTables.bootstrap4.min.css"
 	rel="stylesheet">
+	<style>
+	<style type="text/css">
+.divTb {
+	background-color: #fff !important;
+	border: 1 px solid #e0e0e0 !important;
+	border-radius: 0.5 rem !important;
+}
+	
+	</style>
 <script type="text/javascript">
 
 	$(document).ready(function() {
@@ -67,10 +76,15 @@
 					       $(row).addClass('table-info');}
 
 				   }
+			
 
-
+			
 		});
-		
+
+		$('.dataTables_paginate').addClass('styled-pagination');
+		$('.dataTables_paginate').css({"float":"none"});
+		$('div.dataTables_wrapper>div.row>div[class^=col-]:first-child').attr('class','col-sm-12 col-md-0');
+		$('.paginate_button').css({"padding-bottom":"20px"});
 		 var table = $('#table').DataTable();	
 		$('#table tbody').on('click', 'tr', function () {
 		    var data = table.row( this ).data();
@@ -99,19 +113,11 @@
 							<h5>공지사항</h5>
 							<span>전체적인 공짓거리가 있을때 올라오는 글들
 							</span>
-							<div class="card-header-right">
-								<ul class="list-unstyled card-option">
-									<li><i class="fa fa fa-wrench open-card-option"></i></li>
-									<li><i class="fa fa-window-maximize full-card"></i></li>
-									<li><i class="fa fa-minus minimize-card"></i></li>
-									<li><i class="fa fa-refresh reload-card"></i></li>
-									<li><i class="fa fa-trash close-card"></i></li>
-								</ul>
-							</div>
+						
 						</div>
-						<div class="card-block table-border-style">
-							<div class="table-responsive">
-								<table class="table" id="table">
+						<div class="card-block table-border-style ">
+							<div class="table-responsive divTb">
+								<table class="table table-hover text-nowrap" id="table">
 									<thead>
 										<tr>
 											<th>글번호</th>
