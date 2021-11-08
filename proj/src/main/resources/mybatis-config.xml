@@ -22,6 +22,9 @@
   <mappers>
     <mapper resource="co/three/prj/member/serviceImpl/member-map.xml"/>
     <mapper resource="co/three/prj/totalApi/serviceImpl/totalApi-map.xml"/>
+
+    <mapper resource="co/three/prj/lfNotice/serviceImpl/LfNotice-map.xml"/>
+      <mapper resource="co/three/prj/notice/serviceImpl/Notice-map.xml"/>
   </mappers>
-  
+
 </configuration>

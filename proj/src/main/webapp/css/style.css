@@ -372,6 +372,7 @@ li {
   text-transform: uppercase;
   padding: 13px 18px !important;
   transition: .3s;
+
 }
 
 @media (max-width: 991px) {

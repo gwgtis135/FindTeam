@@ -7,7 +7,14 @@ public class MemberVO {
 	private String address;
 	private String tel;
 	private String author;
+	private String picture;
 	
+	public String getPicture() {
+		return picture;
+	}
+	public void setPicture(String picture) {
+		this.picture = picture;
+	}
 	public MemberVO() {
 		
 	}
