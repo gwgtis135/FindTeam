@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
 <style type="text/css">
 .divTb {
 	background-color: #fff !important;
@@ -57,6 +58,11 @@
 		var searchBox = frm.searchBox.value;
 		location.href = "totalApiSearch.do?pageNum=" + pageNum + "&searchBox=" + searchBox;
 	}
+	
+	function CallTotalApi(n) {
+		frm.rnum.value = n;
+		frm.submit();
+	}
 </script>
 </head>
 <body>
@@ -81,7 +87,7 @@
 									</thead>
 									<tbody>
 										<c:forEach items="${list }" var="list">
-											<tr>
+											<tr onclick="CallTotalApi(${list.rNum })">
 												<td>${list.rNum }</td>
 												<td>${list.prdtClNm }</td>
 												<td>${list.fdPrdtNm }</td>
@@ -92,6 +98,12 @@
 									</tbody>
 								</table>
 							</section>
+							<div>
+								<!-- 숨겨져 있는 폼 -->
+								<form id="frm" action="totalApiDetail.do" method="post">
+									<input type="hidden" id="rnum" name="rnum">
+								</form>
+							</div>
 						</div>
 						<!-- 페이징 부분 -->
 
@@ -137,7 +149,8 @@
 						<div class="search-box">
 							<form id="frm" method="post" action="totalApiSearch.do">
 								<div class="input-group">
-									<input class="form-control" type="search" id="searchBox" name="searchBox" value="${ss }">
+									<input class="form-control" type="search" id="searchBox"
+										name="searchBox" value="${ss }">
 								</div>
 							</form>
 						</div>
@@ -145,16 +158,20 @@
 							<div class="text-title">
 								<h6>태그</h6>
 							</div>
-							<a href="totalApi.do?&pc=PRA000">가방</a> <a href="totalApi.do?&pc=PRH000">지갑</a>
-							<a href="totalApi.do?&pc=PRJ000">휴대폰</a> <a href="totalApi.do?&pc=PRN000">증명서</a> <a
-								href="totalApi.do?&pc=PRK000">옷</a> <a href="totalApi.do?&pc=PRO000">귀금속</a> <a
-								href="totalApi.do?&pc=PRQ000">쇼핑백</a> <a href="totalApi.do?&pc=PRP000">카드</a>
+							<a href="totalApi.do?&pc=PRA000">가방</a> <a
+								href="totalApi.do?&pc=PRH000">지갑</a> <a
+								href="totalApi.do?&pc=PRJ000">휴대폰</a> <a
+								href="totalApi.do?&pc=PRN000">증명서</a> <a
+								href="totalApi.do?&pc=PRK000">옷</a> <a
+								href="totalApi.do?&pc=PRO000">귀금속</a> <a
+								href="totalApi.do?&pc=PRQ000">쇼핑백</a> <a
+								href="totalApi.do?&pc=PRP000">카드</a>
 						</div>
 					</div>
 				</div>
-				
+
 				<div class="col-xl-1"></div>
-				
+
 			</div>
 		</div>
 	</section>

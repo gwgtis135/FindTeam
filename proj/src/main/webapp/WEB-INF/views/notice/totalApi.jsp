@@ -6,12 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript">
-	function CallNotice(n) {
-		frm.nid.value = n;
-		frm.submit();
-	}
-</script>
+
 <style type="text/css">
 .divTb {
 	background-color: #fff !important;
