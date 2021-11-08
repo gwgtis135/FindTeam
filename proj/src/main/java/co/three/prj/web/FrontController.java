@@ -24,6 +24,7 @@ import co.three.prj.command.ImfoAmend;
 import co.three.prj.command.IntroSelf;
 import co.three.prj.command.IntroSite;
 import co.three.prj.command.LNForm;
+import co.three.prj.command.LfNoticeInsert;
 import co.three.prj.command.Logout;
 import co.three.prj.command.LostNotice;
 import co.three.prj.command.LostNoticeSelect;
@@ -80,7 +81,7 @@ public class FrontController extends HttpServlet {
 
 		map.put("/lostNoticeSelect.do", new LostNoticeSelect()); // 분실물 상세페이지.
 		map.put("/lNForm.do", new LNForm());  // 분실물 습득물 입력폼. 
-
+		map.put("/LfNoticeInsert.do", new LfNoticeInsert());  // 분실물 입력 처리.
 		map.put("/totalNotice.do", new TotalNotice()); //유실물 통합 페이지.
 
 		

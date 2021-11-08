@@ -262,8 +262,8 @@
                     
                     <!-- End Shop Page -->
                     <div style="margin-bottom: 5%" class="filter-button-group">
-		                 <button class="btn hvr-hover" type="submit">글쓰기</button>
-		                 <button class="btn hvr-hover" type="submit">삭제</button>
+		                 <button class="btn hvr-hover" type="submit" onclick="location.href='lNForm.do'">글쓰기</button>
+		                 <button class="btn hvr-hover" type="submit" >삭제</button>
                 	</div>
                     <!-- Start Instagram Feed  -->
                     <div class="instagram-box">
@@ -455,7 +455,7 @@
                                             </ul>
                                         </div>
                                     </div>
-                                    <form id="frm" action="lNDetail.do" method="post">
+                                    <form id="frm" action="lostNoticeSelect.do" method="post">
 		           			             <input type="hidden" id="lfnnid" name="lfnid">
            		           			</form>
                                     <!-- ALL PLUGINS -->
