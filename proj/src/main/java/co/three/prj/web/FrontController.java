@@ -18,6 +18,7 @@ import co.three.prj.command.AjaxMemberList;
 import co.three.prj.command.AjaxNoticeList;
 import co.three.prj.command.AjaxTest;
 import co.three.prj.command.Charts;
+import co.three.prj.command.CommentInsert;
 import co.three.prj.command.FoundNotice;
 import co.three.prj.command.HomeCommand;
 import co.three.prj.command.ImfoAmend;
@@ -96,7 +97,12 @@ public class FrontController extends HttpServlet {
 		map.put("/totalApiSearch.do", new TotalApiSearch()); // 유실물 통합 페이지(키워드검색).
 		map.put("/totalApiDetail.do", new TotalApiDetail()); // 유실물 통합 상세페이지.
 		
-
+		
+		map.put("/commentInsert.do", new CommentInsert());
+		
+	
+	
+	
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
