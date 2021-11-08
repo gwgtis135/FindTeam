@@ -49,7 +49,7 @@
             <h3>분실물 습득물<span>작성란</span></h3>
           </div>
           
-           <form name="contact_form" class="default-form contact-form" action="lfNoticeInsert.do" method="post">
+           <form id="frm" name="contact_form" class="default-form contact-form" action="LfNoticeInsert.do" method="post">
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
@@ -89,6 +89,9 @@
                 </div>
                 <div class="form-group text-center">
                   <button type="submit" class="btn-style-one">등록하기</button>
+                 
+				<input type="reset" value="취 소">
+				<input type="button" value="목 록" onclick="location.href='lostNotice.do'">
                 </div>
               </div>
             </div>
@@ -99,7 +102,7 @@
       <div class="col-lg-6 mb-4 mb-lg-0 order-0 order-lg-1">
         <div class="appointment-image-holder ml-0 ml-lg-4">
           <figure>
-            <img id="" name="" class="w-100" src="form/images/background/zflip.jpg" alt="zflip"> <!-- 이미지 사진 들어가는 곳. -->
+            <img id="lFnImg" name="lFnImg" class="w-100" src="form/images/background/zflip.jpg" alt="zflip"> <!-- 이미지 사진 들어가는 곳. -->
             
               <form method="post" enctype="multipart/form-data"> <!-- 이미지 사진 업로드 할 수 있게 -->
                  <div class="button" align="center">
