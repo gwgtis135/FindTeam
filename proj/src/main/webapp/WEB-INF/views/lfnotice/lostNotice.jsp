@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
         <!DOCTYPE html>
         <html>
 
@@ -41,8 +41,11 @@
 			 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 			 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 			 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-			
+			 
+			 <script type="text/javascript">
+			 cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css
+			 cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js
+			 </script>
 			<style type="text/css">
 				body{
 				    text-align:center;
@@ -53,7 +56,7 @@
 			</style>
 			<script type="text/javascript">
 		function CallNotice(n){
-			frm.lfnnid.value=n;
+			frm.lfnid.value=n;
 			frm.submit();
 		}
 	
@@ -167,7 +170,7 @@
                                         <div role="tabpanel" class="tab-pane fade show active" id="grid-view">
                                             <div class="row">
                                                 <c:forEach items="${lostNotice}" var="lostNotices">
-                                                    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4" onclick="CallNotice(${lostNotices.LFnid})">
+                                                    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4" onclick="CallNotice(${lostNotices.LFnid })">
                                                         <div class="products-single fix">
                                                             <div class="box-img-hover">
                                                                 <div class="type-lb">
@@ -261,9 +264,29 @@
                     </div>
                     
                     <!-- End Shop Page -->
+                    <div align="center" >
+	                    <nav aria-label="Page navigation example">
+						  <ul class="pagination" style="margin-left: 39%">
+						    <li class="page-item">
+						      <a class="page-link" href="#" aria-label="Previous">
+						        <span aria-hidden="true">&laquo;</span>
+						      </a>
+						    </li>
+						     <c:forEach begin="1" end="${LfNoticeVO.lastPage}" varStatus="status">
+							    <li class="page-item"><a class="page-link" href="lostNotice.do?nowPage=${status.count}">${status.count}</a></li>
+							 </c:forEach>
+							 <li class="page-item">
+						      <a class="page-link" href="#" aria-label="Next">
+						        <span aria-hidden="true">&raquo;</span>
+						      </a>
+						    </li>
+						  </ul>
+						</nav>
+					</div>
+					
                     <div style="margin-bottom: 5%" class="filter-button-group">
-		                 <button class="btn hvr-hover" type="submit" onclick="location.href='lNForm.do'">글쓰기</button>
-		                 <button class="btn hvr-hover" type="submit" >삭제</button>
+		                 <button class="btn hvr-hover" type="submit">글쓰기</button>
+		                 <button class="btn hvr-hover" type="submit">삭제</button>
                 	</div>
                     <!-- Start Instagram Feed  -->
                     <div class="instagram-box">
@@ -455,8 +478,8 @@
                                             </ul>
                                         </div>
                                     </div>
-                                    <form id="frm" action="lostNoticeSelect.do" method="post">
-		           			             <input type="hidden" id="lfnnid" name="lfnid">
+                                    <form id="frm" name="frm" action="lostNoticeSelect.do" method="post">
+		           			             <input type="hidden" id="lfnid" name="lfnid">
            		           			</form>
                                     <!-- ALL PLUGINS -->
                                     <script src="lnf/js/jquery.superslides.min.js"></script>

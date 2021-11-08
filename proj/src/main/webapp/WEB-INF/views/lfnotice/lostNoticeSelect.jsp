@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,7 +37,10 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+ 
+<script type="text/javascript" 
+	src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=boqtxpjzhn&submodules=geocoder">
+</script>
 </head>
 <body>
 
@@ -49,7 +53,7 @@
                     <div id="carousel-example-1" class="single-product-slider carousel slide">
                         <div class="carousel-inner" >
                             
-                            <div class="carousel-item active"> <img class="d-block w-100" src="lnf/images/big-img-03.jpg"> </div> <!-- 이 자리에 선택한 사진 넝어오게 -->
+                            <div class="carousel-item active"> <img class="d-block w-100" src="${lfnotice.LFnImg}"> </div> <!-- 이 자리에 선택한 사진 넝어오게 -->
                         </div>
                     </div>
                 </div>
@@ -57,22 +61,26 @@
                   
                   <form id="frm" action="lostNoticeSelect.do" method="post">
                     <div class="single-product-details">
-                        <h2>습득물 상세페이지</h2>
+                        <h2>${lfnotice.LFnTitle}</h2>
                         <h5> <del></del></h5>
                         <p class="available-stock" name="lFnDate"><span> 습득날짜 : ${lfnotice.LFnDate } <a href="#"> </a></span></p><p>
 						</p><h4>습득물 내용:</h4>
 						<p name="lFncontent">${lfnotice.LFncontent } </p>
-						<ul>
-							<li>
-								<div class="form-group quantity-box">
-									<label class="control-label">여기에는 지도 api 활용</label>
-									<input class="form-control" value="0" min="0" max="20" type="number">
+						<div class="card">
+								<div class="card-header">
+									<h5>회사위치</h5>
+
 								</div>
-							</li>
-						</ul>
+								<div class="card-block">
+									<div id="maps" style="width: 100%; height: 400px;"></div>
+								</div>
+
+
+							</div>
 						<div class="add-to-btn">
 							<div class="add-comp">
-								<a class="btn hvr-hover" href="#" name="lFnHit"><i class="fas fa-heart"></i> 조회수 ${lfnotice.LFnHit }</a>
+								<a class="btn hvr-hover" href="#" id="lFnHit" name="lFnHit" onclick="()"><i class="fas fa-heart"></i> 조회수 ${lfnotice.LFnHit }</a>
+								<a class="btn hvr-hover" href="lostNotice.do">목록가기</a>
 							</div>
 							<div class="share-bar">
 								<a class="btn hvr-hover" href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a>
@@ -150,6 +158,21 @@
     <script src="lnf/jscontact-form-script.js"></script>
     <script src="lnf/jscustom.js"></script>  
     
-    
+    <script>
+		var mapOptions = {
+			center : new naver.maps.LatLng(35.869093153814326,
+					128.5932699697308),
+			zoom : 17
+		};
+		var map = new naver.maps.Map('maps', mapOptions);	
+		var markerOptions = {
+			position : new naver.maps.LatLng(35.869093153814326,
+					128.5932699697308),
+			map : map
+
+		};
+
+		var marker = new naver.maps.Marker(markerOptions);
+	</script>
 </body>
 </html>

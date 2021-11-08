@@ -16,9 +16,10 @@ public class LostNoticeSelect implements Command {
 		
 		LfNoticeService lfnoticeDao = new LfNoticeServiceImpl();
 		LfNoticeVO vo = new LfNoticeVO();
-		
-		vo.setLFnid(request.getParameter("lFnid"));
+		System.out.println(request.getParameter("lfnid"));
+		vo.setLFnid(request.getParameter("lfnid"));
 		vo = lfnoticeDao.LfNoticeSelect(vo);
+		lfnoticeDao.LfNoticeHitUpdate(vo);
 		
 		request.setAttribute("lfnotice", vo);
 		return "lfnotice/lostNoticeSelect";

@@ -3,11 +3,20 @@
 <mapper namespace="co.three.prj.lfNotice.LfNoticeMapper">
 
 	<select id = "LfNoticeSelectList" resultType="co.three.prj.lfNotice.LfNoticeVO">
-	select * from lfnotice
+		SELECT *
+		FROM
+		    (
+		        SELECT 
+		            ROWNUM AS RNUM, T1.*
+		        FROM
+		            lfnotice T1
+		    )
+		WHERE
+		    RNUM BETWEEN #{start} AND #{end}
 	</select>
 
 	<select id="LfNoticeSelect" resultType="co.three.prj.lfNotice.LfNoticeVO">
-		select * from lfnotice where lFnid = #{LFnid} <!-- 내가써준 vo와 이름이 같아야함 -->
+		select * from lfnotice where lFnid = #{lFnid} <!-- 내가써준 vo와 이름이 같아야함 -->
 	</select>
 	
 	<insert id="LfNoticeInsert" parameterType="co.three.prj.lfNotice.LfNoticeVO">

@@ -13,9 +13,9 @@ public class LfNoticeServiceImpl implements LfNoticeService {
 	private SqlSession sqlSession = DataSource.getInstance().openSession(true);
 	private LfNoticeMapper map = sqlSession.getMapper(LfNoticeMapper.class);
 	@Override
-	public List<LfNoticeVO> LfNoticeSelectList() {
+	public List<LfNoticeVO> LfNoticeSelectList(LfNoticeVO vo) {
 		// TODO Auto-generated method stub
-		return map.LfNoticeSelectList();
+		return map.LfNoticeSelectList(vo);
 	}
 
 	@Override
