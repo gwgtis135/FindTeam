@@ -10,7 +10,6 @@ import co.three.prj.comm.Command;
 import co.three.prj.lfNotice.LfNoticeService;
 import co.three.prj.lfNotice.LfNoticeVO;
 import co.three.prj.lfNotice.serviceImpl.LfNoticeServiceImpl;
-import co.three.prj.paging.PagingVO;
 
 public class LostNotice implements Command {
 
@@ -28,29 +27,13 @@ public class LostNotice implements Command {
 				nowPage = Integer.parseInt(request.getParameter("nowPage"));
 			}
 			
-			LfNoticeVO lfnVo = new LfNoticeVO();
+			LfNoticeVO vo = new LfNoticeVO(39,nowPage,9);
 			
-			lfnVo.setLFnobjType(request.getParameter("LFnobjType"));	//물건타입
-			lfnVo.setLFnAddress(request.getParameter("LFnAddress"));	//지역구
-			lfnVo.setSDate(request.getParameter("startdate"));
-			lfnVo.setEDate(request.getParameter("enddate"));
 			
-			System.out.println(lfnVo.getSDate());
-			System.out.println(lfnVo.getEDate());
-			int n = lfnNoticeDao.LfNoticeCount(lfnVo);
-			PagingVO vo = new PagingVO(n,nowPage,9);
 			
-			System.out.println(n);
-		
-			request.getParameter("lostlocation");
-			
-			lfnVo.setStart(vo.getStart());
-			lfnVo.setEnd(vo.getEnd());
-			
-			list = lfnNoticeDao.LfNoticeSelectList(lfnVo);
+			list = lfnNoticeDao.LfNoticeSelectList(vo);
 			request.setAttribute("lostNotice", list);
-			request.setAttribute("LfNoticeVO", lfnVo);
-			request.setAttribute("pagingVO", vo);
+			request.setAttribute("LfNoticeVO", vo);
 
 			// (After) Doing...
 		} catch (Exception e) {

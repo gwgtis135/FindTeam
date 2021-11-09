@@ -50,25 +50,5 @@ public class LfNoticeServiceImpl implements LfNoticeService {
 
 
 
-	@Override
-	public LfNoticeVO LfNoticeSearch(String obj, String sd, String ed) {
-		// TODO Auto-generated method stub
-		return map.LfNoticeSearch(obj, sd, ed);
-	}
-
-	@Override
-	public int LfNoticeCount(LfNoticeVO vo) {
-		// TODO Auto-generated method stub
-		return map.LfNoticeCount(vo);
-	}
-
-	@Override
-	public List<LfNoticeVO> searchTypeSelect(LfNoticeVO vo) {
-		// TODO Auto-generated method stub
-		return map.searchTypeSelect(vo);
-	}
-
-
-
 
 }

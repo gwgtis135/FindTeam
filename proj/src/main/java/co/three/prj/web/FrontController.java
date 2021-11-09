@@ -18,7 +18,9 @@ import co.three.prj.command.AjaxMemberList;
 import co.three.prj.command.AjaxNoticeList;
 import co.three.prj.command.AjaxTest;
 import co.three.prj.command.Charts;
+import co.three.prj.command.CommentDelete;
 import co.three.prj.command.CommentInsert;
+import co.three.prj.command.CommentUpdate;
 import co.three.prj.command.FoundNotice;
 import co.three.prj.command.HomeCommand;
 import co.three.prj.command.ImfoAmend;
@@ -39,13 +41,9 @@ import co.three.prj.command.RegisterForm;
 import co.three.prj.command.RegisterMember;
 import co.three.prj.command.SearchPw;
 import co.three.prj.command.Test;
-
-import co.three.prj.command.Titleidsearch;
-import co.three.prj.command.TotalNotice;
 import co.three.prj.command.TotalApi;
 import co.three.prj.command.TotalApiDetail;
 import co.three.prj.command.TotalApiSearch;
-
 
 
 @WebServlet("*.do")
@@ -77,7 +75,6 @@ public class FrontController extends HttpServlet {
 
 
 		map.put("/lostNoticeSelect.do", new LostNoticeSelect()); // 분실물 상세페이지.
-		map.put("/titleidsearch.do", new Titleidsearch()); // 분실물 상세페이지.
 		map.put("/lNForm.do", new LNForm());  // 분실물 습득물 입력폼. 
 		//map.put("/LfNoticeInsert.do", new LfNoticeInsert());  // 분실물 입력 처리.
 		map.put("/totalNotice.do", new TotalApi()); //유실물 통합 페이지.
@@ -104,8 +101,8 @@ public class FrontController extends HttpServlet {
 		
 		
 		map.put("/commentInsert.do", new CommentInsert());
-		
-	
+		map.put("/commentDelete.do", new CommentDelete());		
+		map.put("/commentUpdate.do", new CommentUpdate());
 	
 	
 	}

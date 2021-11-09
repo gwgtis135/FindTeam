@@ -16,11 +16,7 @@ public class RegisterMember implements Command {
 	@Override
 	public String run(HttpServletRequest request, HttpServletResponse response) {
 		//멤버 가입처리
-
-		String saveFolder="c:\\upload"; 
-
 		String saveFolder=request.getServletContext().getRealPath("images");
-
 		int n =0;
 		MemberVO vo = new MemberVO();
 		MemberService memberDao = new MemberServiceImpl();
