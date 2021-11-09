@@ -2,6 +2,7 @@ package co.three.prj.command;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -19,6 +20,7 @@ public class ImfoAmend implements Command {
 		int n =0;
 		MemberVO vo = new MemberVO();
 		MemberService memberDao = new MemberServiceImpl();
+		HttpSession session = request.getSession();
 		
 		try {
 			MultipartRequest multipartRequest = new MultipartRequest(request,saveFolder,1024*1024*100,"utf-8",new DefaultFileRenamePolicy());
@@ -38,6 +40,8 @@ public class ImfoAmend implements Command {
 			}else {
 			vo.setPicture(fileName);}
 			n=memberDao.updateMember(vo);
+			session.setAttribute("name", vo.getName());
+			session.setAttribute("propicture", vo.getPicture());
 			
 			
 		}catch(Exception e) {

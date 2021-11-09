@@ -68,7 +68,7 @@ display:none;
             <a href="registerForm.do" class="btn-style-one" style="border-radius:200px">회원가입</a>
             </c:if>
             <c:if test="${not empty id }">
-            <div>${name }님 환영합니다!</div>
+	 <div><img class="rounded-circle border p-1" src="images/${propicture}" loading="lazy" width="90px" height="90px"  alt="picture">${name }님 환영합니다!</div>
             <a href="logout.do" class="btn-style-one" style="border-radius:200px">로그아웃</a>
             </c:if>
           </div>
