@@ -27,6 +27,7 @@ public class MemberLogin implements Command {
 			session.setAttribute("id", vo.getId());
 			session.setAttribute("name", vo.getName());
 			session.setAttribute("author", vo.getAuthor());
+			session.setAttribute("propicture", vo.getPicture());
 		page= "home.do"	;
 		}else {
 			page="memberLoginForm.do";

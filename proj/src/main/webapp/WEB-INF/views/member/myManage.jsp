@@ -90,6 +90,7 @@
 		<!-- Row start -->
 		<div class="row">
 			<!-- Multiple Open Accordion start -->
+			<div class="col-lg-3"></div>
 			<div class="col-lg-6">
 				<div class="card">
 					<div class="card-header">
@@ -100,13 +101,13 @@
 							<div class="accordion-panel">
 								<div class="accordion-heading" role="tab" id="headingOne">
 									<h3 class="card-title accordion-title">
-										<a class="accordion-msg waves-effect waves-dark"
+										<a class="accordion-msg waves-effect waves-dark scale_active"
 											data-toggle="collapse" data-parent="#accordion"
 											href="#collapseOne" aria-expanded="true"
 											aria-controls="collapseOne">아이디 </a>
 									</h3>
 								</div>
-								<div id="collapseOne" class="panel-collapse collapse in"
+								<div id="collapseOne" class="panel-collapse collapse show"
 									role="tabpanel" aria-labelledby="headingOne">
 									<div class="accordion-content accordion-desc">
 										<p>${member.id }</p>
@@ -116,13 +117,14 @@
 							<div class="accordion-panel">
 								<div class="accordion-heading" role="tab" id="headingTwo">
 									<h3 class="card-title accordion-title">
-										<a class="accordion-msg waves-effect waves-dark"
+									
+										<a class="accordion-msg waves-effect waves-dark scale_active"
 											data-toggle="collapse" data-parent="#accordion"
 											href="#collapseTwo" aria-expanded="false"
 											aria-controls="collapseTwo"> 비밀번호 </a>
 									</h3>
 								</div>
-								<div id="collapseTwo" class="panel-collapse collapse"
+								<div id="collapseTwo" class="panel-collapse collapse show"
 									role="tabpanel" aria-labelledby="headingTwo">
 									<div class="accordion-content accordion-desc">
 										<p>${member.password }</p>
@@ -132,13 +134,13 @@
 							<div class="accordion-panel">
 								<div class=" accordion-heading" role="tab" id="headingThree">
 									<h3 class="card-title accordion-title">
-										<a class="accordion-msg waves-effect waves-dark"
+										<a class="accordion-msg waves-effect waves-dark scale_active"
 											data-toggle="collapse" data-parent="#accordion"
 											href="#collapseThree" aria-expanded="false"
 											aria-controls="collapseThree"> 이름 </a>
 									</h3>
 								</div>
-								<div id="collapseThree" class="panel-collapse collapse"
+								<div id="collapseThree" class="panel-collapse collapse show"
 									role="tabpanel" aria-labelledby="headingThree">
 									<div class="accordion-content accordion-desc">
 										<p>${member.name }</p>
@@ -146,15 +148,15 @@
 								</div>
 							</div>
 							<div class="accordion-panel">
-								<div class=" accordion-heading" role="tab" id="headingfour">
+								<div class=" accordion-heading" role="tab" id="headingFour">
 									<h3 class="card-title accordion-title">
-										<a class="accordion-msg waves-effect waves-dark"
+										<a class="accordion-msg waves-effect waves-dark scale_active"
 											data-toggle="collapse" data-parent="#accordion"
 											href="#collapsefour" aria-expanded="false"
 											aria-controls="collapsefour"> 전화번호</a>
 									</h3>
 								</div>
-								<div id="collapsefour" class="panel-collapse collapse"
+								<div id="collapseFour" class="panel-collapse collapse show"
 									role="tabpanel" aria-labelledby="headingfour">
 									<div class="accordion-content accordion-desc">
 										<p>${member.tel }</p>
@@ -162,15 +164,15 @@
 								</div>
 							</div>
 							<div class="accordion-panel">
-								<div class=" accordion-heading" role="tab" id="headingfive">
+								<div class=" accordion-heading" role="tab" id="headingFive">
 									<h3 class="card-title accordion-title">
-										<a class="accordion-msg waves-effect waves-dark"
+										<a class="accordion-msg waves-effect waves-dark scale_active"
 											data-toggle="collapse" data-parent="#accordion"
 											href="#collapsefive" aria-expanded="false"
 											aria-controls="collapsefive"> 주소 </a>
 									</h3>
 								</div>
-								<div id="collapsefive" class="panel-collapse collapse"
+								<div id="collapseFive" class="panel-collapse collapse show"
 									role="tabpanel" aria-labelledby="headingfive">
 									<div class="accordion-content accordion-desc">
 										<p>${member.address }</p>
@@ -178,15 +180,15 @@
 								</div>
 							</div>
 							<div class="accordion-panel">
-								<div class=" accordion-heading" role="tab" id="headingsix">
+								<div class=" accordion-heading" role="tab" id="headingSix">
 									<h3 class="card-title accordion-title">
-										<a class="accordion-msg waves-effect waves-dark"
+										<a class="accordion-msg waves-effect waves-dark scale_active"
 											data-toggle="collapse" data-parent="#accordion"
 											href="#collapsesix" aria-expanded="false"
 											aria-controls="collapsefive"> 프로필사진 </a>
 									</h3>
 								</div>
-								<div id="collapsesix" class="panel-collapse collapse"
+								<div id="collapseSix" class="panel-collapse collapse show"
 									role="tabpanel" aria-labelledby="headingsix">
 									<div class="accordion-content accordion-desc">
 									<c:if test="${member.picture eq null}">
@@ -201,18 +203,18 @@
 						</div>
 					</div>
 					<div class="accordion-panel" align="right"
-						style="margin: 0 20px 20px;">
+						style="margin: 0 20px 20px;"><a id="showMe" style="display:none" onclick="showMe()" class="card-header-text">모두 보기</a>
+						<a id="hideMe" onclick="hideMe()" class="card-header-text">모두 숨기기</a>
 						&nbsp;&nbsp;&nbsp; <a href="myImfoAmend.do" class="card-header-text">정보수정</a>
 					</div>
 				</div>
 
 
 			</div>
-			<div class="col-lg-1">
-			</div>
-	<div class="col-lg-4">
+
+	<div class="col-lg-3">
 				
-				<img loading="lazy" class="img-fluid" src="images/flower.jpg" width="500px"  alt="picture">
+				
 				</div>
 				
 			<!-- Row start -->
@@ -273,6 +275,35 @@
 			<!-- Row end -->
 		</div>
 	</div>
+	<script type="text/javascript">
+	function showMe(){
+		$('#showMe').hide();
+		$('#hideMe').show();
+		$('#collapseSix').attr('class','panel-collapse collapse show');
+		$('#collapseFive').attr('class','panel-collapse collapse show');
+		$('#collapseFour').attr('class','panel-collapse collapse show');
+		$('#collapseThree').attr('class','panel-collapse collapse show');
+		$('#collapseTwo').attr('class','panel-collapse collapse show');
+		$('#collapseOne').attr('class','panel-collapse collapse show');
+		
+	}
+	
+	function hideMe(){
+		$('#showMe').show();
+		$('#hideMe').hide();
+		$('#collapseSix').attr('class','panel-collapse collapse');
+		$('#collapseFive').attr('class','panel-collapse collapse');
+		$('#collapseFour').attr('class','panel-collapse collapse');
+		$('#collapseThree').attr('class','panel-collapse collapse');
+		$('#collapseTwo').attr('class','panel-collapse collapse');
+		$('#collapseOne').attr('class','panel-collapse collapse');
+	}
+	
+	
+	
+	</script>
+	
+	
 	<script type="text/javascript" src="assets/js/jquery/jquery.min.js "></script>
 	<script type="text/javascript"
 		src="assets/js/jquery-ui/jquery-ui.min.js "></script>
