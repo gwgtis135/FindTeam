@@ -79,18 +79,17 @@
                         <div class="col-xl-12 col-lg-12 col-sm-12 col-xs-12 shop-content-right">
                             <div class="right-product-box">
                                 <div class="product-item-filter row">
-                                    <div style="border-right-style: double;" class="col-12 col-sm-6 text-center text-sm-left">
+                                    <div class="col-12 col-sm-6 text-center text-sm-left">
                                         <div class="lostSeach">
                                             <div class="container mt-3">
                                                 <div>
                                                     <table border="1">
-                                                        <form>
+                                                        <form action="lostNotice.do">
                                                             <span>
                                                                 <div class="toolbar-sorter-right" >
                                                                     <span style="font-weight: 900;">지역구별</span>
-                                                                    <select name="lostlocation"
-                                                                        class="show-tick form-control btn-light">
-                                                                        <option selected>분실지역구</option>
+                                                                    <select name="LFnAddress" class="show-tick form-control btn-light">
+                                                                        <option selected value="">지역구별</option>
                                                                         <option value="수성구">수성구</option>
                                                                         <option value="서구">서구</option>
                                                                         <option value="중구">중구</option>
@@ -101,9 +100,8 @@
                                                                 </div>
                                                                 <div class="toolbar-sorter-right">
                                                                     <span style="font-weight: 900;">물품종류</span>
-                                                                    <select name="objtype"
-                                                                        class="show-tick form-control btn-light">
-                                                                        <option selected>물품종류</option>
+                                                                    <select name="LFnobjType" class="show-tick form-control btn-light">
+                                                                        <option selected value="">물품종류</option>
                                                                         <option value="스마트폰">스마트폰</option>
                                                                         <option value="전자기기">전자기기</option>
                                                                         <option value="지갑">지갑</option>
@@ -112,12 +110,12 @@
                                                                     </select>
                                                                     <div style="font-weight: 900;">날짜<div>
                                                                             <div style="display: flex" ;>
-                                                                                <input type="date" name="startydm"
+                                                                                <input type="date" name="startdate"
                                                                                     id="startydm"
                                                                                     class="show-tick btn-light"
                                                                                     title="검색 시작일">
                                                                                 ~
-                                                                                <input type="date" name="endydm"
+                                                                                <input type="date" name="enddate"
                                                                                     id="endydm"
                                                                                     class="show-tick btn-light"
                                                                                     title="검색 종료일">
@@ -151,12 +149,12 @@
                                                         class="fa fa-list-ul"></i> </a>
                                             </li>
                                         </ul>
-                                       <form>
+                                       <form id="frm" name="frm" action="titleidsearch.do" method="post">
 											<div class="toolbar-sorter-right" style="display: flex; width: 90%">
 												<div  style="margin-top: 30%; display: flex;">
-													<select style="width:50%" name="lostlocation" class="show-tick form-control btn-light">
-														<option selected>아이디</option>
-														<option value="수성구">타이틀</option>
+													<select style="width:50%" name="searchType" class="show-tick form-control btn-light">
+														<option value="id">아이디</option>
+														<option value="lFnTitle">타이틀</option>
 													</select>
 													<input name="lostsearch" id="lostsearch" type="text">
 													<button class="btn hvr-hover" type="submit">검색</button>
@@ -268,17 +266,29 @@
 	                    <nav aria-label="Page navigation example">
 						  <ul class="pagination" style="margin-left: 39%">
 						    <li class="page-item">
-						      <a class="page-link" href="#" aria-label="Previous">
-						        <span aria-hidden="true">&laquo;</span>
-						      </a>
+						    <c:if test= "${pagingVO.nowPage == 1}">
+						    	<a class="page-link" href="lostNotice.do?nowPage=1&LFnobjType=${LfNoticeVO.LFnobjType}&LFnAddress=${LfNoticeVO.LFnAddress}" aria-label="Previous">
+						   		<span aria-hidden="true">&laquo;</span></a>
+						   	</c:if>
+							 <c:if test= "${pagingVO.nowPage != 1}">
+						    	<a class="page-link" href="lostNotice.do?nowPage=${pagingVO.nowPage-1}&LFnobjType=${LfNoticeVO.LFnobjType}&LFnAddress=${LfNoticeVO.LFnAddress}" aria-label="Previous">
+						    	<span aria-hidden="true">&laquo;</span></a>
+						    </c:if>
+						    
 						    </li>
-						     <c:forEach begin="1" end="${LfNoticeVO.lastPage}" varStatus="status">
-							    <li class="page-item"><a class="page-link" href="lostNotice.do?nowPage=${status.count}">${status.count}</a></li>
-							 </c:forEach>
-							 <li class="page-item">
-						      <a class="page-link" href="#" aria-label="Next">
-						        <span aria-hidden="true">&raquo;</span>
-						      </a>
+						    <c:forEach begin="1" end="${pagingVO.lastPage}" varStatus="status">
+							    <li class="page-item"><a class="page-link" href="lostNotice.do?nowPage=${status.count}&LFnobjType=${LfNoticeVO.LFnobjType}&LFnAddress=${LfNoticeVO.LFnAddress}">${status.count}</a></li>
+							</c:forEach>
+							<li class="page-item">
+					        <c:if test= "${pagingVO.nowPage == pagingVO.lastPage}">
+						 		<a class="page-link" href="lostNotice.do?nowPage=${pagingVO.nowPage}&LFnobjType=${LfNoticeVO.LFnobjType}&LFnAddress=${LfNoticeVO.LFnAddress}" aria-label="Next">
+						    	<span aria-hidden="true">&raquo;</span></a>
+						    </c:if>
+						    <c:if test= "${pagingVO.nowPage != pagingVO.lastPage}">
+						 		<a class="page-link" href="lostNotice.do?nowPage=${pagingVO.nowPage+1}&LFnobjType=${LfNoticeVO.LFnobjType}&LFnAddress=${LfNoticeVO.LFnAddress}" aria-label="Next">
+						    	<span aria-hidden="true">&raquo;</span></a>
+						    </c:if>
+						        
 						    </li>
 						  </ul>
 						</nav>
@@ -288,10 +298,215 @@
 		                 <button class="btn hvr-hover" type="submit">글쓰기</button>
 		                 <button class="btn hvr-hover" type="submit">삭제</button>
                 	</div>
-               
+                    <!-- Start Instagram Feed  -->
+                    <div class="instagram-box">
+                        <div class="main-instagram owl-carousel owl-theme">
+                            <div class="item">
+                                <div class="ins-inner-box">
+                                    <img src="images/instagram-img-01.jpg" alt="" />
+                                    <div class="hov-in">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="ins-inner-box">
+                                    <img src="images/instagram-img-02.jpg" alt="" />
+                                    <div class="hov-in">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="ins-inner-box">
+                                    <img src="images/instagram-img-03.jpg" alt="" />
+                                    <div class="hov-in">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="ins-inner-box">
+                                    <img src="images/instagram-img-04.jpg" alt="" />
+                                    <div class="hov-in">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="ins-inner-box">
+                                    <img src="images/instagram-img-05.jpg" alt="" />
+                                    <div class="hov-in">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="ins-inner-box">
+                                    <img src="images/instagram-img-06.jpg" alt="" />
+                                    <div class="hov-in">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="ins-inner-box">
+                                    <img src="images/instagram-img-07.jpg" alt="" />
+                                    <div class="hov-in">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="ins-inner-box">
+                                    <img src="images/instagram-img-08.jpg" alt="" />
+                                    <div class="hov-in">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="ins-inner-box">
+                                    <img src="images/instagram-img-09.jpg" alt="" />
+                                    <div class="hov-in">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="ins-inner-box">
+                                    <img src="images/instagram-img-05.jpg" alt="" />
+                                    <div class="hov-in">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Instagram Feed  -->
 
 
-                   
+                    <!-- Start Footer  -->
+                    <footer>
+                        <div class="footer-main">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-12 col-sm-12">
+                                        <div class="footer-top-box">
+                                            <h3>Business Time</h3>
+                                            <ul class="list-time">
+                                                <li>Monday - Friday: 08.00am to 05.00pm</li>
+                                                <li>Saturday: 10.00am to 08.00pm</li>
+                                                <li>Sunday: <span>Closed</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-12 col-sm-12">
+                                        <div class="footer-top-box">
+                                            <h3>Newsletter</h3>
+                                            <form class="newsletter-box">
+                                                <div class="form-group">
+                                                    <input class="" type="email" name="Email"
+                                                        placeholder="Email Address*" />
+                                                    <i class="fa fa-envelope"></i>
+                                                </div>
+                                                <button class="btn hvr-hover" type="submit">Submit</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-12 col-sm-12">
+                                        <div class="footer-top-box">
+                                            <h3>Social Media</h3>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                            <ul>
+                                                <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                                                </li>
+                                                <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                                                </li>
+                                                <li><a href="#"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                                                </li>
+                                                <li><a href="#"><i class="fab fa-google-plus"
+                                                            aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-pinterest-p"
+                                                            aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-12 col-sm-12">
+                                        <div class="footer-widget">
+                                            <h4>About Freshshop</h4>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                                tempor
+                                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                                quis
+                                                nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                                consequat.
+                                            </p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                                tempor
+                                                incididunt ut labore et dolore magna aliqua. </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-12 col-sm-12">
+                                        <div class="footer-link">
+                                            <h4>Information</h4>
+                                            <ul>
+                                                <li><a href="#">About Us</a></li>
+                                                <li><a href="#">Customer Service</a></li>
+                                                <li><a href="#">Our Sitemap</a></li>
+                                                <li><a href="#">Terms &amp; Conditions</a></li>
+                                                <li><a href="#">Privacy Policy</a></li>
+                                                <li><a href="#">Delivery Information</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-12 col-sm-12">
+                                        <div class="footer-link-contact">
+                                            <h4>Contact Us</h4>
+                                            <ul>
+                                                <li>
+                                                    <p><i class="fas fa-map-marker-alt"></i>Address: Michael I. Days
+                                                        3756
+                                                        <br>Preston Street Wichita,<br> KS 67213
+                                                    </p>
+                                                </li>
+                                                <li>
+                                                    <p><i class="fas fa-phone-square"></i>Phone: <a
+                                                            href="tel:+1-888705770">+1-888 705 770</a></p>
+                                                </li>
+                                                <li>
+                                                    <p><i class="fas fa-envelope"></i>Email: <a
+                                                            href="mailto:contactinfo@gmail.com">contactinfo@gmail.com</a>
+                                                    </p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <form id="frm" name="frm" action="lostNoticeSelect.do" method="post">
+		           			             <input type="hidden" id="lfnid" name="lfnid">
+           		           			</form>
+                                    <!-- ALL PLUGINS -->
+                                    <script src="lnf/js/jquery.superslides.min.js"></script>
+                                    <script src="lnf/js/bootstrap-select.js"></script>
+                                    <script src="lnf/js/inewsticker.js"></script>
+                                    <script src="lnf/js/bootsnav.js"></script>
+                                    <script src="lnf/js/images-loded.min.js"></script>
+                                    <script src="lnf/js/isotope.min.js"></script>
+                                    <script src="lnf/js/owl.carousel.min.js"></script>
+                                    <script src="lnf/js/baguetteBox.min.js"></script>
+                                    <script src="lnf/js/jquery-ui.js"></script>
+                                    <script src="lnf/js/jquery.nicescroll.min.js"></script>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                    <!-- End Footer  -->
 
 
                     <!-- ALL JS FILES -->
