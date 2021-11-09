@@ -10,5 +10,5 @@ public interface MemberService {
 	int deleteMember(MemberVO vo);
 	int ackMember(MemberVO vo);
 	int selectMemberCk(String id);
-	
+	int updateMemberSuccess(MemberVO vo);
 }

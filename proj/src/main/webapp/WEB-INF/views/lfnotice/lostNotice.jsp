@@ -53,9 +53,11 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 <script type="text/javascript">
-          cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css
-          cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js
-          </script>
+
+			 cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css
+			 cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js
+			 </script>
+
 <style type="text/css">
 body {
 	text-align: center;
@@ -66,6 +68,7 @@ body {
 }
 </style>
 <script type="text/javascript">
+
       function CallNotice(n){
          frm.lfnid.value=n;
          frm.submit();
@@ -307,6 +310,7 @@ body {
 	<!-- End Footer  -->
 
 
+
 	<!-- ALL JS FILES -->
 	<script src="lnf/js/jquery-3.2.1.min.js"></script>
 	<!-- <script src="lnf/js/lnfpopper.min.js"></script> -->
@@ -315,8 +319,6 @@ body {
 	<script src="lnf/js/form-validator.min.js"></script>
 	<script src="lnf/js/contact-form-script.js"></script>
 	<script src="lnf/js/custom.js"></script>
-
-
 
 </body>
 </html>

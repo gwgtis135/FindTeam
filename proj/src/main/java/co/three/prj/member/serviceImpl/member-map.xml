@@ -25,9 +25,13 @@
 	<update id="updateMember" parameterType="co.three.prj.member.service.MemberVO">
 	update users set password=#{password},name=#{name},tel=#{tel},address=#{address}, author=#{author},picture=#{picture} where id=#{id}
 	</update>
+	
+	<update id="updateMemberSuccess" parameterType="co.three.prj.member.service.MemberVO">
+	update users set name = #{name}, tel = #{tel}, address = #{address}, picture = #{picture} where id=#{id}
+	</update>
 
 	<delete id="deleteMember" parameterType="co.three.prj.member.service.MemberVO">
-
+ 	delete from users where id = #{id}
 	</delete>
 
 

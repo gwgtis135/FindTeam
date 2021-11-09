@@ -24,8 +24,11 @@
 	width: 100% !important;
 	text-align: center !important;
 }
+.section{
+padding: 50px 0px;
+}
 </style>
-<!-- ** Basic Page Needs ** -->
+<!-- ** Basic Page Needs aa** -->
 
 <!-- ** Mobile Specific Metas ** -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">

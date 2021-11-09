@@ -115,18 +115,16 @@ display:none;
           <a class="nav-link" href="myManage.do">나의 정보</a>
         </li>
         </c:if>
-        
-        <c:if test="${author == 'ADMIN' }"> <!-- 관리자만 보이는 드롭다운 -->
-        <li class="nav-item dropdown @@blogs">
-          <a class="nav-link dropdown-toggle" href="#!" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">관리자 페이지</a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item @@blog" href="adminMember.do">회원 관리</a></li>
-            <li><a class="dropdown-item @@blogDetails" href="blog-details.html">게시글 관리</a></li>
-                      </ul>    
-            </li>
-            </c:if>
-
-
+        	<c:if test="${author == 'ADMIN' }">
+        	<li class="nav-item dropdown @@blogs">
+          	<a class="nav-link dropdown-toggle" href="#!" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">관리자 페이지</a>
+          	<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            	<li><a class="dropdown-item @@blog" href="memberList.do">회원 관리</a></li>
+            	<li><a class="dropdown-item @@blogDetails" href="#">게시글 관리</a></li>   
+          	</ul>
+        	</li>
+        </c:if>
+       
       </ul>
     </div>
   </div>
