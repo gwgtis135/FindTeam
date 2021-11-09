@@ -24,6 +24,9 @@
 	width: 100% !important;
 	text-align: center !important;
 }
+.section{
+padding: 50px 0px;
+}
 </style>
 <!-- ** Basic Page Needs ** -->
 

@@ -51,8 +51,14 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public int selectMemberCk(String id) {
-		// TODO Auto-generated method stub
+		
 		return map.selectMemberCk(id);
+	}
+
+	@Override
+	public int updateMemberSuccess(MemberVO vo) {
+		
+		return map.updateMemberSuccess(vo);
 	}
 
 }

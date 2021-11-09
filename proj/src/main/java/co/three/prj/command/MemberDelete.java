@@ -2,25 +2,33 @@ package co.three.prj.command;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import co.three.prj.comm.Command;
 import co.three.prj.member.service.MemberService;
 import co.three.prj.member.service.MemberVO;
 import co.three.prj.member.serviceImpl.MemberServiceImpl;
 
-public class MyImfoAmend implements Command {
+public class MemberDelete implements Command{
 
 	@Override
 	public String run(HttpServletRequest request, HttpServletResponse response) {
-		//내 정보 수정
-		HttpSession session = request.getSession();
-		MemberVO vo = new MemberVO();
+		//회원 삭제
 		MemberService memberDao = new MemberServiceImpl();
-		vo.setId((String) session.getAttribute("id"));
-		vo=memberDao.selectMember(vo); 
-		request.setAttribute("member", vo);
-		return "member/myImfoAmend";
+		MemberVO vo = new MemberVO();
+		vo.setId(request.getParameter("id"));
+		int n = memberDao.deleteMember(vo);
+		System.out.println(n);
+		
+		String viewPage = null;
+		if(n != 0) {
+			viewPage = "memberList.do";
+		}else {
+			request.setAttribute("message", "삭제실패");
+			viewPage = "member/memberFail";
+		}
+		return viewPage;
 	}
+
+	
 
 }

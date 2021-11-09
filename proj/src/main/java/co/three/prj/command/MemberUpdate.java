@@ -2,25 +2,24 @@ package co.three.prj.command;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import co.three.prj.comm.Command;
 import co.three.prj.member.service.MemberService;
 import co.three.prj.member.service.MemberVO;
 import co.three.prj.member.serviceImpl.MemberServiceImpl;
 
-public class MyImfoAmend implements Command {
-
+public class MemberUpdate implements Command {
+	//관리자페이지 -> 회원수정
 	@Override
 	public String run(HttpServletRequest request, HttpServletResponse response) {
-		//내 정보 수정
-		HttpSession session = request.getSession();
 		MemberVO vo = new MemberVO();
 		MemberService memberDao = new MemberServiceImpl();
-		vo.setId((String) session.getAttribute("id"));
-		vo=memberDao.selectMember(vo); 
+		
+		vo.setId(request.getParameter("id"));
+		vo = memberDao.selectMember(vo);
 		request.setAttribute("member", vo);
-		return "member/myImfoAmend";
+		
+		return "member/memberUpdate";
 	}
 
 }
