@@ -1,5 +1,4 @@
 package co.three.prj.lfNotice;
-
 import java.sql.Date;
 
 public class LfNoticeVO {
@@ -86,7 +85,23 @@ public class LfNoticeVO {
 	
 
 	private String id; // 회원 id
+	private String sDate;
+	private String eDate;
+	private int start;
+	private int end;
+	private int count;
+	private String searchType;
+	private String lostsearch;
+	@Override
+	public String toString() {
+		return "LfNoticeVO [lFnid=" + lFnid + ", lFnTitle=" + lFnTitle + ", lFncontent=" + lFncontent + ", lFnDate="
+				+ lFnDate + ", lFnAddress=" + lFnAddress + ", lFnHit=" + lFnHit + ", lFnObj=" + lFnObj + ", lFnImg="
+				+ lFnImg + ", lFnobjType=" + lFnobjType + ", lFnStatus=" + lFnStatus + ", id=" + id + ", sDate=" + sDate
+				+ ", eDate=" + eDate + ", start=" + start + ", end=" + end + ", count=" + count + "]";
+	}
 	
+	
+
 	// 현재페이지, 시작페이지, 끝페이지, 게시글 총 갯수, 페이지당 글 갯수, 마지막페이지, SQL쿼리에 쓸 start, end
 		private int nowPage, startPage, endPage, total, cntPerPage, lastPage, start, end;
 		private int cntPage = 5;
@@ -182,6 +197,5 @@ public class LfNoticeVO {
 					+ ", cntPerPage=" + cntPerPage + ", lastPage=" + lastPage + ", start=" + start + ", end=" + end
 					+ ", cntPage=" + cntPage + "]";
 		}
-
 
 }

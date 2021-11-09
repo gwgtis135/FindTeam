@@ -12,11 +12,10 @@ import co.three.prj.lfNotice.LfNoticeVO;
 import co.three.prj.lfNotice.serviceImpl.LfNoticeServiceImpl;
 import co.three.prj.paging.PagingVO;
 
-public class LostNotice implements Command {
+public class Titleidsearch implements Command {
 
 	@Override
 	public String run(HttpServletRequest request, HttpServletResponse response) {
-
 		try {
 			// (Before) Doing...
 			LfNoticeService lfnNoticeDao = new LfNoticeServiceImpl();
@@ -30,24 +29,29 @@ public class LostNotice implements Command {
 			
 			LfNoticeVO lfnVo = new LfNoticeVO();
 			
-			lfnVo.setLFnobjType(request.getParameter("LFnobjType"));	//물건타입
-			lfnVo.setLFnAddress(request.getParameter("LFnAddress"));	//지역구
-			lfnVo.setSDate(request.getParameter("startdate"));
-			lfnVo.setEDate(request.getParameter("enddate"));
 			
-			System.out.println(lfnVo.getSDate());
-			System.out.println(lfnVo.getEDate());
+			lfnVo.setSearchType(request.getParameter("searchType"));
+			lfnVo.setLostsearch(request.getParameter("lostsearch"));
+			
+			System.out.println(lfnVo.getSearchType());
+			System.out.println(lfnVo.getLostsearch());
 			int n = lfnNoticeDao.LfNoticeCount(lfnVo);
 			PagingVO vo = new PagingVO(n,nowPage,9);
 			
 			System.out.println(n);
 		
-			request.getParameter("lostlocation");
+			
+			System.out.println(lfnVo.getSearchType());
+			System.out.println(lfnVo.getLostsearch());
 			
 			lfnVo.setStart(vo.getStart());
 			lfnVo.setEnd(vo.getEnd());
 			
-			list = lfnNoticeDao.LfNoticeSelectList(lfnVo);
+			list = lfnNoticeDao.searchTypeSelect(lfnVo);
+			for(LfNoticeVO str: list) {
+				System.out.println(str);
+			}
+			System.out.println(list);
 			request.setAttribute("lostNotice", list);
 			request.setAttribute("LfNoticeVO", lfnVo);
 			request.setAttribute("pagingVO", vo);
@@ -56,14 +60,7 @@ public class LostNotice implements Command {
 		} catch (Exception e) {
 			throw e;
 		}
-
-		/*
-		 * // 분실물 게시판 출력하기 LfNoticeService lfnNoticeDao = new LfNoticeServiceImpl();
-		 * request.setAttribute("lostNotice", lfnNoticeDao.LfNoticeSelectList());
-		 */
-
 		return "lfnotice/lostNotice";
-
 	}
 
 }
