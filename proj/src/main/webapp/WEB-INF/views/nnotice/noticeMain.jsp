@@ -82,9 +82,9 @@
 		});
 
 		$('.dataTables_paginate').addClass('styled-pagination');
-		$('.dataTables_paginate').css({"float":"none"});
-		$('div.dataTables_wrapper>div.row>div[class^=col-]:first-child').attr('class','col-sm-12 col-md-0');
-		$('.paginate_button').css({"padding-bottom":"20px"});
+
+		$('div.dataTables_wrapper>div.row>div[class^=col-]:first-child:eq(2)').attr('class','col-sm-12 col-md-1');
+
 		 var table = $('#table').DataTable();	
 		$('#table tbody').on('click', 'tr', function () {
 		    var data = table.row( this ).data();

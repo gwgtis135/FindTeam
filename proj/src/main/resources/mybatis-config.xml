@@ -25,6 +25,7 @@
 
     <mapper resource="co/three/prj/lfNotice/serviceImpl/LfNotice-map.xml"/>
       <mapper resource="co/three/prj/notice/serviceImpl/Notice-map.xml"/>
+      <mapper resource="co/three/prj/comment/serviceImpl/Comment-map.xml"/>
   </mappers>
 
 </configuration>
