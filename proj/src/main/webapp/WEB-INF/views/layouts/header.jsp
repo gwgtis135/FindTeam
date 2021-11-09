@@ -107,7 +107,7 @@ display:none;
           <a class="nav-link" href="#">습득물 게시판</a>
         </li>
         <li class="nav-item @@gallery">
-          <a class="nav-link" href="totalNotice.do">공공기관 유실물 조회</a>
+          <a class="nav-link" href="totalApi.do">공공기관 유실물 조회</a>
         </li>
           
         <c:if test="${not empty id }"><!-- 로그인 후 보이는 메뉴 -->

@@ -8,18 +8,24 @@
   <environments default="development">
     <environment id="development">
       <transactionManager type="JDBC"/>
+      
       <dataSource type="POOLED">
         <property name="driver" value="${driver}"/>
         <property name="url" value="${url}"/>
         <property name="username" value="${username}"/>
         <property name="password" value="${password}"/>
       </dataSource>
+      
     </environment>
   </environments>
+  
   <mappers>
     <mapper resource="co/three/prj/member/serviceImpl/member-map.xml"/>
+    <mapper resource="co/three/prj/totalApi/serviceImpl/totalApi-map.xml"/>
+
     <mapper resource="co/three/prj/lfNotice/serviceImpl/LfNotice-map.xml"/>
       <mapper resource="co/three/prj/notice/serviceImpl/Notice-map.xml"/>
+      <mapper resource="co/three/prj/comment/serviceImpl/Comment-map.xml"/>
   </mappers>
 
 </configuration>
