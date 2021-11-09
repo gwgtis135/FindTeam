@@ -9,70 +9,19 @@
 		        SELECT 
 		            ROWNUM AS RNUM, T1.*
 		        FROM
-		            lfnotice T1 
-		            <where>
-		            	<if test='lFnobjType != null and lFnobjType != ""'>
-		    				AND lFnobjType = #{lFnobjType}
-		    			</if>
-						<if test='lFnAddress != null and lFnAddress !=""'>
-		    				AND lFnAddress like '%'||#{lFnAddress}||'%'
-		    			</if>		
-		    			<if test='sDate != null and eDate != null'>
-		    				AND lFnAddress like '%'||#{lFnAddress}||'%'
-		    			</if>	    			
-		            </where>
+		            lfnotice T1
 		    )
 		WHERE
 		    RNUM BETWEEN #{start} AND #{end}
-		    order by lFnDate asc
-	</select>
-	
-	<select id = "searchTypeSelect" resultType="co.three.prj.lfNotice.LfNoticeVO">
-		SELECT *
-		FROM
-		    (
-		        SELECT 
-		            ROWNUM AS RNUM, T1.*
-		        FROM
-		            lfnotice T1 
-		            <where>
-			            	<if test='searchType == "id"'>
-			    				AND id = #{lostsearch}
-			    			</if>
-			    			<if test='searchType == "lFnTitle"'>
-			    				AND lFnTitle like '%'||#{lostsearch}||'%'
-			    			</if>
-		            </where>
-		    )
-		WHERE
-		    RNUM BETWEEN #{start} AND #{end}
-		    order by lFnDate asc
-	</select>
-	
-	<select id="LfNoticeSelect" resultType="co.three.prj.lfNotice.LfNoticeVO">
-		select * from lfnotice where lFnid = #{lFnid} <!-- 내가써준 vo와 이름이 같아야함 -->
-	
-	</select>
-	
-	<select id="LfNoticeCount" resultType="int">
-		select count(*) as cnt from lfnotice 
-		    <where>
-				<if test="lFnobjType != null">
-					AND lFnobjType = #{lFnobjType}
-				</if>
-			</where>
 	</select>
 
-	<select id="LfNoticeSearch" resultType="co.three.prj.lfNotice.LfNoticeVO">
-		select * from lfnotice
-		<if test ="not empty lFnobjType">
-			where lFnobjType = #{lFnobjType}
-		</if>
+	<select id="LfNoticeSelect" resultType="co.three.prj.lfNotice.LfNoticeVO">
+		select * from lfnotice where lFnid = #{lFnid} <!-- 내가써준 vo와 이름이 같아야함 -->
 	</select>
 	
 	<insert id="LfNoticeInsert" parameterType="co.three.prj.lfNotice.LfNoticeVO">
 		insert into lfnotice
-			values(SEQUENCE_LFNOTICE.nextval, #{lFnTitle}, #{lFncontent}, #{lFnDate}, #{lFnAddress}, 1, #{lFnObj}, #{lFnImg}, #{lFnobjType}, #{lFnStatus}, #{id})
+			values(SEQUENCE_LFNOTICE.nextval, #{lFTitle}, #{lFncontent}, sysdate, #{lFnImg}, #{lFnobjType}, #{lFnStatus}, #{id})
 	</insert>
 	
 	<delete id="LfNoticeDelete" parameterType="co.three.prj.lfNotice.LfNoticeVO">

@@ -117,65 +117,93 @@
 
 										</div>
 										<div class="media-body">
-											<p>${comment.ccontent }</p>
+											<p id="mainComment${comment.cnid}">${comment.ccontent }</p>
 											<input style="width: 550px; display: none" type="text"
 												id="underComment${comment.cnid}"
 												name="underComment${comment.cnid}" placeholder="댓글을 작성하세요"><a
 												style="display: none" onclick="btnUn(${comment.cnid})"
-												id="btnUnReply${comment.cnid}">댓글♥</a> <br> <small
+												id="btnUnReply${comment.cnid}">댓글♥</a>
+											<input style="width: 550px; display: none" type="text"
+												id="underUdComment${comment.cnid}"
+												name="underUdComment${comment.cnid}" value="${comment.ccontent }"> <a
+												style="display: none" onclick="btnUdUn(${comment.cnid})"
+												id="btnUdUnReply${comment.cnid}">수정♥</a>
+												
+												
+												
+												
+												 <br> <small
 												class="text-muted">${comment.cid}--${comment.cdate }</small>
 										</div>
 									</div>
 									<hr>
-									<c:if test="${author eq 'ADMIN' ||id eq comment.cid }">
-										<div class="col-md-2">
-											<a id="updateComment">수정</a>
-											<hr>
-											<a id="deleteComment">삭제</a>
+									
+										<div class="col-md-2"><c:if test="${id eq comment.cid }">
+											<a id="updateComment${comment.cnid}"
+												onclick="updateComment(${comment.cnid})"
+												style="font-size: 10px;">수정</a>
+												</c:if>
+												<br> 
+													<c:if test="${author eq 'ADMIN' ||id eq comment.cid }">
+												<a
+												id="deleteComment${comment.cnid}"
+												onclick="deleteComment(${comment.cnid})"
+												style="font-size: 10px;">삭제</a></c:if>
 										</div>
-																	
-									</c:if>
-									<hr>
+
+									
+
 								</c:if>
 
-										</div>
-									
-								<c:forEach items="${comments}" var="uncomment">
-									<c:if test="${uncomment.cparent eq comment.cnid}">
-									
-										<div class="row">
+							</div>
 
-											<div class="media mb-3 col-md-2"></div>
-											<div class="media mb-3 col-md-8">
-												<div class="mr-2">
-													<img class="rounded-circle border p-1"
-														src="images/${uncomment.picture}"
-														style="width: 70px; height: 70px"
-														alt="Generic placeholder image">
+							<c:forEach items="${comments}" var="uncomment">
+								<c:if test="${uncomment.cparent eq comment.cnid}">
 
-												</div>
-												<div class="media-body">
-													<p>${uncomment.ccontent }</p>
+									<div class="row">
 
-													<br> <small class="text-muted">${uncomment.cid}--${uncomment.cdate }</small>
-												</div>
+										<div class="media mb-3 col-md-2"></div>
+										<hr>
+										<div class="media mb-3 col-md-8">
+											<div class="mr-2">
+												<img class="rounded-circle border p-1"
+													src="images/${uncomment.picture}"
+													style="width: 70px; height: 70px"
+													alt="Generic placeholder image">
+
 											</div>
-											<c:if test="${author eq 'ADMIN' ||id eq comment.cid }">
-												<div class="col-md-2">
-													<a id="updateComment">수정</a>
-													<hr>
-													<a id="deleteComment">삭제</a>
-												</div>
-													
-											</c:if>
-
-
+											<div class="media-body">
+												<p id="mainComment${uncomment.cnid}">${uncomment.ccontent }</p>
+												<input style="width: 400px; display: none" type="text"
+												id="underUdComment${uncomment.cnid}"
+												name="underUdComment${uncomment.cnid}" value="${uncomment.ccontent }"> <a
+												style="display: none" onclick="btnUdUn(${uncomment.cnid})"
+												id="btnUdUnReply${uncomment.cnid}">수정♥</a>
+												<br> <small class="text-muted">${uncomment.cid}--${uncomment.cdate }</small>
+											</div>
 										</div>
+										<hr>
 										
-									</c:if>
-								</c:forEach>
+											<div class="col-md-2"><c:if test="${id eq uncomment.cid }">
+												<a id="updateComment${uncomment.cnid}"
+													onclick="updateComment(${uncomment.cnid})"
+													style="font-size: 10px;">수정</a></c:if><br>
+													<c:if test="${author eq 'ADMIN' ||id eq uncomment.cid }">
+													 <a
+													id="deleteComment${uncomment.cnid}"
+													onclick="deleteComment(${uncomment.cnid})"
+													style="font-size: 10px;">삭제</a>	</c:if>
+											</div>
 
-					
+									
+
+
+									</div>
+
+								</c:if>
+							</c:forEach>
+
+
 						</c:forEach>
 
 						<input style="width: 800px" type="text" id="comment"
@@ -282,13 +310,54 @@
 				}
 			});
 		};
-		
-		
-		
+		function btnUdUn(n){
+			
+			var comment = $("#underUdComment"+n).val(); //댓글 내용
+			
+			var bno = "${lfnotice.LFnid}";
+			
+			var param = {
+				"ccontent" : comment,
+				"cnid" : n
+			};
+			$.ajax({
+				type : "post", //데이터를 보낼 방식
+				url : "commentUpdate.do", //데이터를 보낼 url
+				data : param, //보낼 데이터
 
-		
-	
+				success : function() { //데이터를 보내는것이 성공했을시 출력되는 메시지
+				
+					location.reload(); //댓글 목록 출력
+				}
+			});
+			
+			
+		}
+		function updateComment(n){
+			$('#mainComment'+n).remove();
+			$('#underComment'+n).remove();
+			$('#btnUnReply'+n).remove();
+			$('#underUdComment'+n).show();
+			$('#btnUdUnReply'+n).show();	
+		}
+		function deleteComment(n){
 
+			var param = {
+					"cnid" : n
+				};
+			
+			
+			$.ajax({
+				type : "post", //데이터를 보낼 방식
+				url : "commentDelete.do", //데이터를 보낼 url
+				data : param, //보낼 데이터
+
+				success : function() { //데이터를 보내는것이 성공했을시 출력되는 메시지
+					location.reload(); //댓글 목록 출력
+				}
+			});
+			}
+		
 	</script>
 </body>
 </html>

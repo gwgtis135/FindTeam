@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.three.prj.comment.service.CommentMapper">
+
+<select id="CommentSelectList" resultType="co.three.prj.comment.service.CommentVO">
+select * from comments
+</select>
+
+<select id="CommentSelect" resultType="co.three.prj.comment.service.CommentVO">
+select * from comments where 
+<if test="cnid!=null">
+cnid=#{cnid}
+</if>
+
+<if test="cnid==null">
+cboard=#{cboard} and cid=#{cid} and ccontent=#{ccontent}
+</if>
+</select>
+
+<select id="CommentCSelect" resultType="co.three.prj.comment.service.CommentVO">
+select * from comments where cboard=#{cboard}
+		<if test="cid!= null">
+ and cid=#{cid} and ccontent=#{ccontent}
+ </if>
+</select>
+
+<insert id="CommentInsert" parameterType="co.three.prj.comment.service.CommentVO">
+insert into comments values(SEQUENCE_COMMENT.nextval,#{cboard},#{cid},sysdate,#{cparent},#{ccontent},(select picture from users where id=#{cid}))
+</insert>
+
+<delete id="CommentDelete" parameterType="co.three.prj.comment.service.CommentVO">
+delete from comments where  
+<if test="cparent==0">
+cnid=#{cnid} or cparent=#{cnid} 
+</if>
+<if test="cparent!=0">
+ cnid=#{cnid} 
+</if>
+</delete>
+
+<update id="CommentUpdate" parameterType="co.three.prj.comment.service.CommentVO">
+update  comments set ccontent = #{ccontent} where cnid=#{cnid}
+
+</update>
+
+</mapper>
